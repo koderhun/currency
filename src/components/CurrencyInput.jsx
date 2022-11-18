@@ -13,6 +13,7 @@ export const CurrencyInput = ({ currencyInput, changeInputCurrency }) => {
   return (
     <div className='line'>
       <InputNumber
+        size='large'
         value={value}
         formatter={(value) => formatterNumber(value)}
         parser={(value) => parserNumber(value)}

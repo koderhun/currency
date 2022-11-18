@@ -7,6 +7,10 @@ import { LoaderCustom } from 'components/LoaderCustom'
 
 const currencyDefault = [
   {
+    code: 'KZT',
+    value: 0,
+  },
+  {
     code: 'RUB',
     value: 0,
   },
@@ -15,10 +19,27 @@ const currencyDefault = [
     value: 0,
   },
   {
-    code: 'KZT',
+    code: 'EUR',
+    value: 0,
+  },
+  {
+    code: 'KGS',
+    value: 0,
+  },
+  {
+    code: 'GEL',
+    value: 0,
+  },
+  {
+    code: 'TRY',
     value: 0,
   },
 ]
+
+// EUR
+// KGS
+// GEL
+// TRY
 
 export const CurrencyForm = () => {
   const [setCurrency, { isLoading, isError, data: resultCurrency }] =
