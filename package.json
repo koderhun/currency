@@ -2,6 +2,7 @@
   "name": "currency",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://rtxrulez.github.io/currency",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -11,7 +12,9 @@
     "lint:es:fix": "npm run lint:es -- --fix",
     "lint:css": "stylelint src",
     "lint:css:fix": "npm run lint:css -- --fix",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "browserslist": {
     "production": [
@@ -41,6 +44,7 @@
   "devDependencies": {
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
+    "gh-pages": "^4.0.0",
     "husky": "^8.0.0",
     "node-sass": "^7.0.3",
     "prettier": "^2.7.1",

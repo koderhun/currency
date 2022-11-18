@@ -3,7 +3,7 @@ import { InputNumber } from 'antd'
 export const CurrencyInput = ({ currencyInput, changeInputCurrency }) => {
   const { code, value } = currencyInput
 
-  const onChange = (value) => {
+  const onChangeValue = (value) => {
     changeInputCurrency(value, code)
   }
 
@@ -16,8 +16,9 @@ export const CurrencyInput = ({ currencyInput, changeInputCurrency }) => {
         placeholder={value}
         min='0'
         step='1'
-        onChange={onChange}
+        // onChange={onChangeValue}
         stringMode
+        onBlur={onChangeValue}
       />
     </div>
   )

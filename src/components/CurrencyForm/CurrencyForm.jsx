@@ -3,6 +3,7 @@ import { useSetCurrencyMutation } from 'store/currency/currency.api'
 import { CurrencyInputGroup } from 'components/CurrencyInputGroup'
 // import { LoaderCustom } from 'components/LoaderCustom'
 import { normalizeRequest } from 'services'
+import { LoaderCustom } from 'components/LoaderCustom'
 
 const currencyDefault = [
   {
@@ -20,10 +21,8 @@ const currencyDefault = [
 ]
 
 export const CurrencyForm = () => {
-  const [
-    setCurrency,
-    { isLoading, isSuccess, isUninitialized, data: resultCurrency },
-  ] = useSetCurrencyMutation()
+  const [setCurrency, { isLoading, isError, data: resultCurrency }] =
+    useSetCurrencyMutation()
 
   const changeItemInput = (value, name) => {
     setCurrency(
@@ -34,21 +33,17 @@ export const CurrencyForm = () => {
       }),
     )
   }
-  console.log(
-    'isLoading, isSuccess, isUninitialized',
-    isLoading,
-    isSuccess,
-    isUninitialized,
-  )
-
   return (
     <form className='form'>
+      {isLoading && <LoaderCustom />}
+
       <CurrencyInputGroup
         {...{
           list: resultCurrency ? resultCurrency : currencyDefault,
           changeInputCurrency: changeItemInput,
         }}
       />
+      <p>{isError && <span>Ощибка запроса</span>}</p>
     </form>
   )
 }

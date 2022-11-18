@@ -1,8 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import { normalizeResponse } from 'services'
-import { currencyActions } from './currency.slice'
-
-const baseUrl = 'http://p1ratrulezzz.me:20000/api/currency-converter/v1/'
+const baseUrl = 'https://api-currconverter.p1ratrulezzz.com/api/currency-converter/v1/'
 
 export const currencyApi = createApi({
   reducerPath: 'currency/api',

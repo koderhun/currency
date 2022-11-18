@@ -7,7 +7,7 @@ export const General = () => {
   return (
     <div className='general'>
       <div className='content'>
-        <Title level={4} className='title'>Convertor</Title>
+        <Title level={4} className='title'>Converter</Title>
         <CurrencyForm />
       </div>
     </div>
