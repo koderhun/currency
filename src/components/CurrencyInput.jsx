@@ -10,7 +10,7 @@ export const CurrencyInput = ({ currencyInput, changeInputCurrency }) => {
   return (
     <div className='line'>
       <InputNumber
-        // value={value}
+        value={value}
         addonBefore={code}
         name={code}
         placeholder={value}
@@ -18,7 +18,7 @@ export const CurrencyInput = ({ currencyInput, changeInputCurrency }) => {
         step='1'
         // onChange={onChangeValue}
         stringMode
-        onBlur={onChangeValue}
+        onBlur={(e) => onChangeValue(e.target.value)}
       />
     </div>
   )
