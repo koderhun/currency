@@ -1,9 +1,15 @@
-import React from 'react'
+import { Typography } from 'antd'
+import { CurrencyForm } from 'components/CurrencyForm/CurrencyForm'
 
-function General() {
+const { Title } = Typography
+
+export const General = () => {
   return (
-    <div>General</div>
+    <div className='general'>
+      <div className='content'>
+        <Title level={4} className='title'>Convertor</Title>
+        <CurrencyForm />
+      </div>
+    </div>
   )
 }
-
-export default General

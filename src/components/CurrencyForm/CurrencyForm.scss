@@ -1,0 +1,19 @@
+.form {
+}
+.line {
+  margin-bottom: 15px;
+
+  .ant-input-group-addon {
+    width: 100px;
+  }
+
+  .ant-btn {
+    width: 100%;
+  }
+
+  input::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: red;
+    opacity: 1; /* Firefox */
+  }
+}

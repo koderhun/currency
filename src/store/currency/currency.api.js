@@ -1,23 +1,31 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
+import { normalizeResponse } from 'services'
+import { currencyActions } from './currency.slice'
+
+const baseUrl = 'http://p1ratrulezzz.me:20000/api/currency-converter/v1/'
 
 export const currencyApi = createApi({
   reducerPath: 'currency/api',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'http://api.github.com/',
+    baseUrl,
   }),
-  refetchOnFocus: true,
   endpoints: (build) => ({
     setCurrency: build.mutation({
-      mutation: (search) => ({
-        url: `search/users`,
-        params: {
-          q: search,
-          per_page: 10,
-        },
+      query: (data) => {
+        return {
+          url: `convert`,
+          method: 'POST',
+          body: data,
+        }
+      },
+      transformResponse: (response) => normalizeResponse(response),
+    }),
+    getCurrencyList: build.query({
+      query: () => ({
+        url: `symbols`,
       }),
-      transformResponse: (response) => response.items,
     }),
   }),
 })
 
-export const { useSetCurrencyMutation } = currencyApi
+export const { useSetCurrencyMutation, useGetCurrencyListQuery } = currencyApi
