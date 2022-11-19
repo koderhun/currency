@@ -14,6 +14,7 @@ export const CurrencyInput = ({ currencyInput, changeInputCurrency }) => {
     <div className='line'>
       <InputNumber
         size='large'
+        type='number'
         value={value}
         formatter={(value) => formatterNumber(value)}
         parser={(value) => parserNumber(value)}
