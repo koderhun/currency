@@ -1,11 +1,21 @@
 @import '~antd/dist/antd.css';
+
+:root {
+  --brand-gray: #f0f2f5;
+}
+
 body {
+  background-color: var(--brand-gray);
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+
 }
 
 code {
@@ -35,12 +45,12 @@ code {
 
 #root,
 .ant-layout {
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .general {
   width: 100%;
-  padding: 20px;
+  padding: 20px 0;
   display: flex;
   justify-content: center;
 
@@ -53,12 +63,13 @@ code {
   text-align: center;
 }
 
-@media (max-width: 480px) {
-  .layout {
-    main {
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-    }
+.layout {
+  main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
+}
+
+@media (max-width: 480px) {
 }
