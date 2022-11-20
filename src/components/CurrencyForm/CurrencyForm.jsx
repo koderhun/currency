@@ -4,6 +4,9 @@ import { CurrencyInputGroup } from 'components/CurrencyInputGroup'
 // import { LoaderCustom } from 'components/LoaderCustom'
 import { normalizeRequest } from 'services'
 import { LoaderCustom } from 'components/LoaderCustom'
+import { ErrorMsg } from 'components/ErrorMsg'
+import { useDebounce } from 'hooks/debounce'
+import { useState, useEffect } from 'react'
 
 const currencyDefault = [
   {
@@ -36,24 +39,32 @@ const currencyDefault = [
   },
 ]
 
-// EUR
-// KGS
-// GEL
-// TRY
-
 export const CurrencyForm = () => {
-  const [setCurrency, { isLoading, isError, data: resultCurrency }] =
+  const [setCurrency, { isLoading, isError, error, data: resultCurrency }] =
     useSetCurrencyMutation()
+  const [inputName, setInputName] = useState('')
+  const [inputValue, setInputValue] = useState('')
+  const nameDebounce = useDebounce(inputName)
+  const valueDebounce = useDebounce(inputValue)
 
   const changeItemInput = (value, name) => {
-    setCurrency(
-      normalizeRequest({
-        items: resultCurrency ? resultCurrency : currencyDefault,
-        value_from: parseFloat(value),
-        code_from: name,
-      }),
-    )
+    setInputName(name)
+    setInputValue(value)
   }
+
+  useEffect(() => {
+    if (nameDebounce !== '' || valueDebounce !== '' &&
+      valueDebounce !== inputValue || nameDebounce !== inputName) {
+      setCurrency(
+        normalizeRequest({
+          items: resultCurrency ? resultCurrency : currencyDefault,
+          value_from: valueDebounce,
+          code_from: nameDebounce,
+        }),
+      )
+    }
+  }, [nameDebounce, valueDebounce])
+
   return (
     <form className='form'>
       {isLoading && <LoaderCustom />}
@@ -64,7 +75,7 @@ export const CurrencyForm = () => {
           changeInputCurrency: changeItemInput,
         }}
       />
-      <p>{isError && <span>Ощибка запроса</span>}</p>
+      {isError && <ErrorMsg {...{error}}/>}
     </form>
   )
 }
