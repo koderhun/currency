@@ -1,5 +1,6 @@
 import { InputNumber } from 'antd'
 import { formatterNumber } from 'services'
+import { Flags } from './Flags/Flags'
 
 export const CurrencyInput = ({ currencyInput, changeInputCurrency }) => {
   const { code, value } = currencyInput
@@ -17,7 +18,7 @@ export const CurrencyInput = ({ currencyInput, changeInputCurrency }) => {
           type: 'tel',
           value: value.toFixed(2),
           formatter: (value) => formatterNumber(value),
-          addonBefore: code,
+          addonBefore: <Flags {...{name: code}} />,
           name: code,
           placeholder: value.toFixed(2),
           min: 0,
