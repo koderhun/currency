@@ -1,81 +1,73 @@
 import './CurrencyForm.scss'
-import { useSetCurrencyMutation } from 'store/currency/currency.api'
+import {
+  useSetCurrencyMutation,
+  currencyDefault,
+} from 'store/currency/currency.api'
 import { CurrencyInputGroup } from 'components/CurrencyInputGroup'
-// import { LoaderCustom } from 'components/LoaderCustom'
 import { normalizeRequest } from 'services'
 import { LoaderCustom } from 'components/LoaderCustom'
 import { ErrorMsg } from 'components/ErrorMsg'
-import { useDebounce } from 'hooks/debounce'
-import { useState, useEffect } from 'react'
-
-const currencyDefault = [
-  {
-    code: 'KZT',
-    value: 0,
-  },
-  {
-    code: 'RUB',
-    value: 0,
-  },
-  {
-    code: 'USD',
-    value: 0,
-  },
-  {
-    code: 'EUR',
-    value: 0,
-  },
-  {
-    code: 'KGS',
-    value: 0,
-  },
-  {
-    code: 'GEL',
-    value: 0,
-  },
-  {
-    code: 'TRY',
-    value: 0,
-  },
-]
+import { useInput } from 'hooks/useInput'
+import { useEffect } from 'react'
+import { Button } from 'antd'
 
 export const CurrencyForm = () => {
   const [setCurrency, { isLoading, isError, error, data: resultCurrency }] =
     useSetCurrencyMutation()
-  const [inputName, setInputName] = useState('')
-  const [inputValue, setInputValue] = useState('')
-  const nameDebounce = useDebounce(inputName)
-  const valueDebounce = useDebounce(inputValue)
-
+  const { inputName, inputValue, setInputName, setInputValue } = useInput({
+    name: '',
+    value: 0,
+  })
   const changeItemInput = (value, name) => {
     setInputName(name)
     setInputValue(value)
   }
 
   useEffect(() => {
-    if (nameDebounce !== '' || valueDebounce !== '' &&
-      valueDebounce !== inputValue || nameDebounce !== inputName) {
+    if (!resultCurrency) {
       setCurrency(
         normalizeRequest({
-          items: resultCurrency ? resultCurrency : currencyDefault,
-          value_from: valueDebounce,
-          code_from: nameDebounce,
+          items: currencyDefault,
+          value_from: 0,
+          code_from: 'KZT',
         }),
       )
     }
-  }, [nameDebounce, valueDebounce])
+  }, [])
+
+  const handleClick = () => {
+    if (inputValue !== 0) {
+      setCurrency(
+        normalizeRequest({
+          items: resultCurrency,
+          value_from: inputValue,
+          code_from: inputName,
+        }),
+      )
+    }
+  }
 
   return (
     <form className='form'>
-      {isLoading && <LoaderCustom />}
+      <div className='loader-group'>
+        {isLoading && <LoaderCustom />}
 
-      <CurrencyInputGroup
-        {...{
-          list: resultCurrency ? resultCurrency : currencyDefault,
-          changeInputCurrency: changeItemInput,
-        }}
-      />
-      {isError && <ErrorMsg {...{error}}/>}
+        <CurrencyInputGroup
+          {...{
+            list: resultCurrency,
+            changeInputCurrency: changeItemInput,
+          }}
+        />
+      </div>
+      <Button
+        size='large'
+        type='primary'
+        className='send'
+        onClick={handleClick}
+      >
+        Send
+      </Button>
+      {isError && <ErrorMsg {...{ error }} />}
     </form>
   )
 }
