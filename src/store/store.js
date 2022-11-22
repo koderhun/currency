@@ -9,5 +9,3 @@ export const store = configureStore({
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(currencyApi.middleware),
 })
-
-// setupListeners(store.dispatch)

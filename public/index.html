@@ -31,11 +31,52 @@
     <link rel="icon" href="%PUBLIC_URL%/manifest/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="Converter currency" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest/manifest.json" crossorigin="use-credentials" />
 
     <title>Converter</title>
+    <!-- service worker -->
+    <!-- ie -->
+    <script type="text/javascript">
+      var ua = navigator.userAgent
+      var is_ie = ua.indexOf('MSIE ') > -1 || ua.indexOf('Trident/') > -1
+
+      if (is_ie) {
+        document.ie = 'true'
+
+        var ie_script = document.createElement('script')
+        var ie_styles = document.createElement('link')
+
+        ie_script.src = 'no-ie/init.js'
+        ie_styles.rel = 'stylesheet'
+        ie_styles.href = 'no-ie/styles.css'
+
+        function injectScripts() {
+          document.body.innerHTML = ''
+          document.body.appendChild(ie_styles)
+          document.body.appendChild(ie_script)
+        }
+
+        if (document.addEventListener) {
+          document.addEventListener('DOMContentLoaded', injectScripts)
+        } else {
+          // before IE 9
+          document.attachEvent('DOMContentLoaded', injectScripts)
+        }
+      }
+    </script>
+    <!-- end service worker -->
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <script type="text/javascript">
+      // set the body color before app initialization, to avoid blinking
+      var themeMode = localStorage.getItem('theme-mode')
+      var initialBodyStyles = document.createElement('style')
+      var currentBodyColor = themeMode === 'light' ? '#fafafa' : '#111'
+      initialBodyStyles.innerText =
+        'body { background-color: ' + currentBodyColor + ' }'
+      document.head.appendChild(initialBodyStyles)
+    </script>
   </body>
 </html>
