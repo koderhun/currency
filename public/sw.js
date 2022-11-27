@@ -1,11 +1,12 @@
-const staticCacheName = 's-app-v3'
-const dynamicCacheName = 'd-app-v3'
+const staticCacheName = 's-currency'
+const dynamicCacheName = 'd-currency'
 
 const assetUrls = [
   'index.html',
+  'offline.html',
   '/js/app.js',
-  '/css/styles.css',
-  'offline.html'
+  '/static/*.*',
+  '/images/*.*'
 ]
 
 self.addEventListener('install', async event => {
