@@ -1,6 +1,7 @@
 import { InputNumber } from 'antd'
 import { formatterNumber } from 'services'
-import { Flags } from './Flags/Flags'
+import { Flags } from 'components/Flags/Flags'
+import './styles.scss'
 
 export const CurrencyInput = ({ currencyInput, changeInputCurrency }) => {
   const { code, value } = currencyInput
@@ -14,7 +15,7 @@ export const CurrencyInput = ({ currencyInput, changeInputCurrency }) => {
     <div className='line'>
       <InputNumber
         {...{
-          size: 'large',
+          className: 'currencyInput',
           type: 'tel',
           value: value.toFixed(2),
           formatter: (value) => formatterNumber(value),

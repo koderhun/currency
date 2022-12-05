@@ -1,10 +1,14 @@
 .flag {
   width: 40px;
   max-width: 100%;
-  display: block;
+  display: flex;
+  align-items: center;
 
   img {
     display: block;
     max-width: 100%;
+  }
+  span {
+    padding: 0 10px;
   }
 }

@@ -1,5 +1,5 @@
 import React from 'react'
-import { CurrencyInput } from 'components/CurrencyInput'
+import { CurrencyInput } from 'components/CurrencyInput/CurrencyInput'
 
 export const CurrencyInputGroup = ({ list, isSuccess, changeInputCurrency }) => {
   return (

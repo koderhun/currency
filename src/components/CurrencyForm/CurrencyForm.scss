@@ -36,3 +36,14 @@
   justify-content: center;
   background-color: #f0f2f5ad;
 }
+
+
+@media (max-width: 500px) {
+  .line {
+    width: 100%;
+  }
+
+  .ant-input-number-group-addon {
+    min-width: 100px;
+  }
+}
