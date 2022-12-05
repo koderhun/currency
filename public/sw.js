@@ -49,6 +49,7 @@ async function networkFirst(request) {
     return response
   } catch (e) {
     const cached = await cache.match(request)
+    console.info('offline request')
     return cached ?? await caches.match('/offline.html')
   }
 }
