@@ -13,10 +13,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-#root {
-
-}
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -54,7 +50,8 @@ code {
   justify-content: center;
 
   .content {
-    max-width: 400px;
+    width: 100%;
+    max-width: 500px;
   }
 }
 
@@ -71,11 +68,24 @@ code {
 }
 
 .loader-group {
-  min-height: 395px;
+  transition: all .2s ease;
+  min-height: 300px;
 }
 
 .send {
   width: 100%;
+}
+
+:where(.currencyInput).ant-input-number .ant-input-number-input {
+  height: 45px;
+}
+
+:where(.currencyInput).ant-input-number-group-wrapper {
+  width: 100%;
+}
+
+:where(.currencyInput).ant-input-number-group .ant-input-number-group-addon:first-child {
+  width: 100px;
 }
 
 @media (max-width: 500px) {

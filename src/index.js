@@ -1,6 +1,7 @@
 import { Layout } from 'layout/Layout'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import { Provider } from 'react-redux'
 import { HashRouter } from 'react-router-dom'
 import { store } from 'store/store'
@@ -16,3 +17,5 @@ root.render(
     </Provider>
   </React.StrictMode>,
 )
+
+serviceWorkerRegistration.register();
