@@ -1,14 +1,19 @@
+import { useContext } from 'react'
 import { InputNumber } from 'antd'
 import { formatterNumber } from 'services'
 import { Flags } from 'components/Flags/Flags'
+import { FormContext } from 'components/CurrencyForm/CurrencyForm'
 import './styles.scss'
 
-export const CurrencyInput = ({ currencyInput, changeInputCurrency }) => {
-  const { code, value } = currencyInput
+export const CurrencyInput = ({ currencyInput, }) => {
+  const { code } = currencyInput
+
+  const { changeItemInput } = useContext(FormContext)
 
   const handleChangeValue = (value) => {
-    changeInputCurrency(value, code)
+    changeItemInput(value, code)
   }
+
   const handleFocus = (event) => event.target.select()
 
   return (
@@ -17,11 +22,10 @@ export const CurrencyInput = ({ currencyInput, changeInputCurrency }) => {
         {...{
           className: 'currencyInput',
           type: 'tel',
-          value: value.toFixed(2),
           formatter: (value) => formatterNumber(value),
-          addonBefore: <Flags {...{name: code}} />,
+          addonBefore: <Flags {...{ name: code }} />,
           name: code,
-          placeholder: value.toFixed(2),
+          placeholder: '0',
           min: 0,
           onChange: (value) => handleChangeValue(value),
           onPressEnter: (e) => handleChangeValue(e.target.value),

@@ -1,10 +1,10 @@
 import React from 'react'
 import { CurrencyInput } from 'components/CurrencyInput/CurrencyInput'
+import { formArray } from 'config/currency-form-config'
 
-export const CurrencyInputGroup = ({ list, isSuccess, changeInputCurrency }) => {
+export const CurrencyInputGroup = ({ isSuccess, changeInputCurrency }) => {
   return (
-    list &&
-    list.map((currencyInput, index) => {
+    formArray.map((currencyInput, index) => {
       return (
         <CurrencyInput
           key={currencyInput.code + index}
