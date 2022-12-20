@@ -1,3 +1,4 @@
+
 :root {
   --brand-gray: #f0f2f5;
 }
@@ -22,7 +23,6 @@ code {
   padding: 24px;
   background: #fff;
 }
-
 .logo {
   float: left;
   width: 120px;
@@ -30,12 +30,10 @@ code {
   margin: 16px 24px 16px 0;
   background: rgba(255, 255, 255, 0.3);
 }
-
 .ant-row-rtl .logo {
   float: right;
   margin: 16px 0 16px 24px;
 }
-
 [data-theme='dark'] .site-layout-content {
   background: #141414;
 }
@@ -55,13 +53,10 @@ code {
     width: 100%;
     max-width: 500px;
   }
+}
 
-  .title {
-    text-align: center;
-    text-transform: uppercase;
-    font-size: 20px;
-    font-weight: normal;
-  }
+.title {
+  text-align: center;
 }
 
 .layout {

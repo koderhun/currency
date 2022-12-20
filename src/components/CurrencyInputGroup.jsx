@@ -1,18 +1,14 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { CurrencyInput } from 'components/CurrencyInput/CurrencyInput'
-import { FormContext } from 'components/CurrencyForm/CurrencyForm'
 
-export const CurrencyInputGroup = () => {
-  const { formDataState } = useContext(FormContext)
-
+export const CurrencyInputGroup = ({ list, isSuccess, changeInputCurrency }) => {
   return (
-    formDataState.map((currencyInput, index) => {
+    list &&
+    list.map((currencyInput, index) => {
       return (
         <CurrencyInput
           key={currencyInput.code + index}
-          {...{
-            currencyInput
-          }}
+          {...{ currencyInput, isSuccess, changeInputCurrency }}
         />
       )
     })
