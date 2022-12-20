@@ -1,6 +1,6 @@
-import { configureStore } from '@reduxjs/toolkit'
+import {configureStore} from '@reduxjs/toolkit'
 
-import { currencyApi } from './currency/currency.api'
+import {currencyApi} from './currency/currency.api'
 
 export const store = configureStore({
   reducer: {

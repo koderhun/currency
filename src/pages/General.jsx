@@ -1,13 +1,15 @@
-import { Typography } from 'antd'
-import { CurrencyForm } from 'components/CurrencyForm/CurrencyForm'
+import {Typography} from 'antd'
+import {CurrencyForm} from 'components/CurrencyForm/CurrencyForm'
 
-const { Title } = Typography
+const {Title} = Typography
 
 export const General = () => {
   return (
     <div className='general'>
       <div className='content'>
-        <Title level={4} className='title'>Converter</Title>
+        <Title level={4} className='title'>
+          Converter
+        </Title>
         <CurrencyForm />
       </div>
     </div>

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Menu } from 'antd'
+import {Menu} from 'antd'
 
 export const Nav = () => {
   return (
@@ -8,11 +8,13 @@ export const Nav = () => {
         theme='dark'
         mode='horizontal'
         defaultSelectedKeys={['1']}
-        items={[{
-          key: 'general',
-          label: "Конвертер",
-          link: '/'
-        }]}
+        items={[
+          {
+            key: 'general',
+            label: 'Конвертер',
+            link: '/',
+          },
+        ]}
       />
     </div>
   )

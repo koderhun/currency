@@ -30,31 +30,31 @@ export const themes = {
       },
     },
   },
-};
+}
 
 export const formCurrencyInput = [
   {
-    code: "KZT",
+    code: 'KZT',
     flag: '',
     value: 0,
   },
   {
-    code: "RUB",
+    code: 'RUB',
     flag: '',
     value: 0,
   },
   {
-    code: "USD",
+    code: 'USD',
     flag: '',
     value: 0,
   },
   {
-    code: "EUR",
+    code: 'EUR',
     flag: '',
     value: 0,
   },
   {
-    code: "UAH",
+    code: 'UAH',
     flag: '',
     value: 0,
   },
@@ -67,5 +67,5 @@ export const formCurrencyInput = [
     code: 'GEL',
     flag: '',
     value: 0,
-  }
+  },
 ]

@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const ErrorMsg = ({ error }) => {
+export const ErrorMsg = ({error}) => {
   console.error(error)
   return (
     <div className='errorMsg'>

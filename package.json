@@ -11,6 +11,7 @@
     "lint:es:fix": "npm run lint:es -- --fix",
     "lint:css": "stylelint src",
     "lint:css:fix": "npm run lint:css -- --fix",
+    "prettier": "prettier --write src/**/*.js src/**/*.jsx",
     "prepare": "husky install",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
