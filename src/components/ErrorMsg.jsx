@@ -1,7 +1,7 @@
 import React from 'react'
 
 export const ErrorMsg = ({ error }) => {
-  console.log(error)
+  console.error(error)
   return (
     <div className='errorMsg'>
       <div className='status'>{error.status}</div>

@@ -1,73 +1,71 @@
-import './CurrencyForm.scss'
-import {
-  useSetCurrencyMutation,
-  currencyDefault,
-} from 'store/currency/currency.api'
-import { CurrencyInputGroup } from 'components/CurrencyInputGroup'
-import { normalizeRequest } from 'services'
-import { LoaderCustom } from 'components/LoaderCustom'
-import { ErrorMsg } from 'components/ErrorMsg'
-import { useInput } from 'hooks/useInput'
 import { useEffect } from 'react'
-import { Button } from 'antd'
+import { createContext, useState } from 'react'
+import './CurrencyForm.scss'
+import { CurrencyInputGroup } from 'components/CurrencyInputGroup'
+import {
+  useGetCurrenciesFormQuery
+} from 'store/currency/currency.api'
+import { useInput } from 'hooks/useInput'
+import { formCurrencyInput } from 'config'
+import { LoaderCustom } from 'components/LoaderCustom'
+import { ErrorMsg } from '../ErrorMsg'
+
+export const FormContext = createContext();
 
 export const CurrencyForm = () => {
-  const [setCurrency, { isLoading, isError, error, data: resultCurrency }] =
-    useSetCurrencyMutation()
+  const { data, error, isLoading, isFetching } = useGetCurrenciesFormQuery(formCurrencyInput)
+
+  const [formDataState, setFormDataState] = useState([...formCurrencyInput])
+  const [currencyBase, setCurrencyBase] = useState({})
   const { inputName, inputValue, setInputName, setInputValue } = useInput({
     name: '',
     value: 0,
   })
+
   const changeItemInput = (value, name) => {
     setInputName(name)
     setInputValue(value)
   }
 
   useEffect(() => {
-    if (!resultCurrency) {
-      setCurrency(
-        normalizeRequest({
-          items: currencyDefault,
-          value_from: 0,
-          code_from: 'KZT',
-        }),
-      )
+    if (data) {
+      setCurrencyBase(data)
     }
-  }, [])
+  })
 
-  const handleClick = () => {
-    if (inputValue !== 0) {
-      setCurrency(
-        normalizeRequest({
-          items: resultCurrency,
-          value_from: inputValue,
-          code_from: inputName,
-        }),
-      )
+  useEffect(() => {
+  }, [currencyBase])
+
+  useEffect(() => {
+    if (inputName) {
+      let newFormDataState = []
+      formDataState.map((val) => {
+        const item = data[`${inputName}_${val.code}`]
+        if (inputName === val.code) {
+          newFormDataState.push({
+            ...val,
+            value: Number(inputValue)
+          })
+        } else {
+          newFormDataState.push({
+            ...val,
+            value: Number(item.Value) * Number(inputValue)
+          })
+        }
+      })
+      setFormDataState(newFormDataState)
     }
-  }
+  }, [inputName, inputValue])
 
   return (
-    <form className='form'>
-      <div className='loader-group'>
-        {isLoading && <LoaderCustom />}
-
-        <CurrencyInputGroup
-          {...{
-            list: resultCurrency,
-            changeInputCurrency: changeItemInput,
-          }}
-        />
-      </div>
-      <Button
-        size='large'
-        type='primary'
-        className='send'
-        onClick={handleClick}
-      >
-        Send
-      </Button>
-      {isError && <ErrorMsg {...{ error }} />}
-    </form>
+    <FormContext.Provider value={{ changeItemInput, formDataState }}>
+      <form className='form'>
+        <div className='loader-group'>
+          {isLoading && <LoaderCustom />}
+          <CurrencyInputGroup />
+        </div>
+        {error && <ErrorMsg error={error} />}
+      </form>
+    </FormContext.Provider>
   )
 }
