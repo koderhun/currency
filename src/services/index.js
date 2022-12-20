@@ -1,22 +1,3 @@
-export const normalizeRequest = ({ items, value_from, code_from }) => {
-  return [...items].map((val) => {
-    return {
-      code_from,
-      value_from: value_from,
-      code_to: val.code,
-    }
-  })
-}
-
-export const normalizeResponse = (items) => {
-  return [...items].map((val) => {
-    return {
-      code: val.code_to,
-      value: val.value_to,
-    }
-  })
-}
-
 export const parserNumber = (val) => {
   if (!val) return 0
   return Number.parseFloat(

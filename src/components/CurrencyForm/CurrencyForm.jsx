@@ -1,48 +1,70 @@
-import { createContext, useContext } from 'react'
+import { useEffect } from 'react'
+import { createContext, useState } from 'react'
 import './CurrencyForm.scss'
 import { CurrencyInputGroup } from 'components/CurrencyInputGroup'
-import { normalizeRequest } from 'services'
-import { LoaderCustom } from 'components/LoaderCustom'
-import { ErrorMsg } from 'components/ErrorMsg'
+import {
+  useGetCurrenciesFormQuery
+} from 'store/currency/currency.api'
 import { useInput } from 'hooks/useInput'
-import { useEffect } from 'react'
-import { Button } from 'antd'
+import { formCurrencyInput } from 'config'
+import { LoaderCustom } from 'components/LoaderCustom'
+import { ErrorMsg } from '../ErrorMsg'
 
-export const FormContext = createContext({});
+export const FormContext = createContext();
 
 export const CurrencyForm = () => {
+  const { data, error, isLoading, isFetching } = useGetCurrenciesFormQuery(formCurrencyInput)
+
+  const [formDataState, setFormDataState] = useState([...formCurrencyInput])
+  const [currencyBase, setCurrencyBase] = useState({})
   const { inputName, inputValue, setInputName, setInputValue } = useInput({
     name: '',
     value: 0,
   })
+
   const changeItemInput = (value, name) => {
     setInputName(name)
     setInputValue(value)
-    console.log('change', value, name)
   }
 
   useEffect(() => {
+    if (data) {
+      setCurrencyBase(data)
+    }
+  })
 
-  }, [])
+  useEffect(() => {
+  }, [currencyBase])
 
-  const handleClick = () => {
-
-  }
+  useEffect(() => {
+    if (inputName) {
+      let newFormDataState = []
+      formDataState.map((val) => {
+        const item = data[`${inputName}_${val.code}`]
+        if (inputName === val.code) {
+          newFormDataState.push({
+            ...val,
+            value: Number(inputValue)
+          })
+        } else {
+          newFormDataState.push({
+            ...val,
+            value: Number(item.Value) * Number(inputValue)
+          })
+        }
+      })
+      setFormDataState(newFormDataState)
+    }
+  }, [inputName, inputValue])
 
   return (
-    <FormContext.Provider value={{ changeItemInput }}>
+    <FormContext.Provider value={{ changeItemInput, formDataState }}>
       <form className='form'>
         <div className='loader-group'>
+          {isLoading && <LoaderCustom />}
           <CurrencyInputGroup />
         </div>
-        <Button
-          size='large'
-          type='primary'
-          className='send'
-          onClick={handleClick}
-        >
-          Send
-        </Button>
+        {error && <ErrorMsg error={error} />}
       </form>
     </FormContext.Provider>
   )

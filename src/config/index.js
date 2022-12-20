@@ -31,3 +31,41 @@ export const themes = {
     },
   },
 };
+
+export const formCurrencyInput = [
+  {
+    code: "KZT",
+    flag: '',
+    value: 0,
+  },
+  {
+    code: "RUB",
+    flag: '',
+    value: 0,
+  },
+  {
+    code: "USD",
+    flag: '',
+    value: 0,
+  },
+  {
+    code: "EUR",
+    flag: '',
+    value: 0,
+  },
+  {
+    code: "UAH",
+    flag: '',
+    value: 0,
+  },
+  {
+    code: 'KGS',
+    flag: '',
+    value: 0,
+  },
+  {
+    code: 'GEL',
+    flag: '',
+    value: 0,
+  }
+]
