@@ -45,7 +45,7 @@ export const CurrencyForm = () => {
     if (inputName) {
       let newFormDataState = []
       formDataState.map((val) => {
-        const item = data[`${inputName}_${val.code}`]
+        const item = currencyBase[`${inputName}_${val.code}`]
         if (inputName === val.code) {
           newFormDataState.push({
             ...val,
