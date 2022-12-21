@@ -12,8 +12,10 @@ import './CurrencyForm.scss'
 export const FormContext = createContext()
 
 export const CurrencyForm = () => {
-  const {data, error, isLoading, isFetching} =
-    useGetCurrenciesFormQuery(formCurrencyInput)
+  const {data, error, isLoading, isFetching} = useGetCurrenciesFormQuery(
+    formCurrencyInput,
+    {pollingInterval: 60000},
+  )
 
   const [storageCurrency, setStorageCurrency] = useLocalStorage(
     'currencyData',

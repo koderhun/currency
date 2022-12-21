@@ -34,16 +34,6 @@ export const themes = {
 
 export const formCurrencyInput = [
   {
-    code: 'KZT',
-    flag: '',
-    value: 0,
-  },
-  {
-    code: 'RUB',
-    flag: '',
-    value: 0,
-  },
-  {
     code: 'USD',
     flag: '',
     value: 0,
@@ -65,6 +55,16 @@ export const formCurrencyInput = [
   },
   {
     code: 'GEL',
+    flag: '',
+    value: 0,
+  },
+  {
+    code: 'RUB',
+    flag: '',
+    value: 0,
+  },
+  {
+    code: 'KZT',
     flag: '',
     value: 0,
   },
