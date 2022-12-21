@@ -1,6 +1,0 @@
-// .eslintignore
-
-**/App.tsx
-.prettierrc
-package.json
-jsconfig.json

@@ -1,23 +1,28 @@
-import { useEffect } from 'react'
-import { createContext, useState } from 'react'
+import {useEffect} from 'react'
+import {createContext, useState} from 'react'
+import {CurrencyInputGroup} from 'components/CurrencyInputGroup'
+import {useGetCurrenciesFormQuery} from 'store/currency/currency.api'
+import {useInput} from 'hooks/useInput'
+import {formCurrencyInput} from 'config'
+import {LoaderCustom} from 'components/LoaderCustom'
+import {ErrorMsg} from '../ErrorMsg'
+import {useLocalStorage} from 'hooks/localstorage-hook'
 import './CurrencyForm.scss'
-import { CurrencyInputGroup } from 'components/CurrencyInputGroup'
-import {
-  useGetCurrenciesFormQuery
-} from 'store/currency/currency.api'
-import { useInput } from 'hooks/useInput'
-import { formCurrencyInput } from 'config'
-import { LoaderCustom } from 'components/LoaderCustom'
-import { ErrorMsg } from '../ErrorMsg'
 
-export const FormContext = createContext();
+export const FormContext = createContext()
 
 export const CurrencyForm = () => {
-  const { data, error, isLoading, isFetching } = useGetCurrenciesFormQuery(formCurrencyInput)
+  const {data, error, isLoading, isFetching} =
+    useGetCurrenciesFormQuery(formCurrencyInput)
+
+  const [storageCurrency, setStorageCurrency] = useLocalStorage(
+    'currencyData',
+    'null',
+  )
 
   const [formDataState, setFormDataState] = useState([...formCurrencyInput])
   const [currencyBase, setCurrencyBase] = useState({})
-  const { inputName, inputValue, setInputName, setInputValue } = useInput({
+  const {inputName, inputValue, setInputName, setInputValue} = useInput({
     name: '',
     value: 0,
   })
@@ -28,13 +33,13 @@ export const CurrencyForm = () => {
   }
 
   useEffect(() => {
-    if (data) {
+    if (data && !error) {
       setCurrencyBase(data)
+      setStorageCurrency(data)
+    } else {
+      setCurrencyBase(storageCurrency)
     }
-  })
-
-  useEffect(() => {
-  }, [currencyBase])
+  }, [data])
 
   useEffect(() => {
     if (inputName) {
@@ -44,12 +49,12 @@ export const CurrencyForm = () => {
         if (inputName === val.code) {
           newFormDataState.push({
             ...val,
-            value: Number(inputValue)
+            value: Number(inputValue),
           })
         } else {
           newFormDataState.push({
             ...val,
-            value: Number(item.Value) * Number(inputValue)
+            value: Number(item.Value) * Number(inputValue),
           })
         }
       })
@@ -58,7 +63,7 @@ export const CurrencyForm = () => {
   }, [inputName, inputValue])
 
   return (
-    <FormContext.Provider value={{ changeItemInput, formDataState }}>
+    <FormContext.Provider value={{changeItemInput, formDataState}}>
       <form className='form'>
         <div className='loader-group'>
           {isLoading && <LoaderCustom />}

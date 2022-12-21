@@ -1,9 +1,0 @@
-// .eslintrc
-{
-  "extends": [
-    "react-app"
-  ],
-  "plugins": [
-    "prettier"
-  ]
-}
