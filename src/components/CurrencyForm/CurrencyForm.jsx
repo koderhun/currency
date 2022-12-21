@@ -14,7 +14,12 @@ export const FormContext = createContext()
 export const CurrencyForm = () => {
   const {data, error, isLoading, isFetching} = useGetCurrenciesFormQuery(
     formCurrencyInput,
-    {pollingInterval: 60000},
+    {
+      pollingInterval: 30000,
+      keepUnusedDataFor: 120,
+      refetchOnFocus: true,
+      refetchOnReconnect: true,
+    },
   )
 
   const [storageCurrency, setStorageCurrency] = useLocalStorage(
