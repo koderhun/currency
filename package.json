@@ -4,7 +4,7 @@
   "private": true,
   "homepage": "https://currency.p1ratrulezzz.com",
   "scripts": {
-    "start": "npm run build && npm run dev",
+    "start": "BROWSER=none npm run dev",
     "dev": "react-scripts start",
     "build": "react-scripts build",
     "prettier": "prettier --write src/**/*.js src/**/*.jsx",
