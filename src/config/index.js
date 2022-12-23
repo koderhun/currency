@@ -59,6 +59,11 @@ export const formCurrencyInput = [
     value: 0,
   },
   {
+    code: 'TRY',
+    flag: '',
+    value: 0,
+  },
+  {
     code: 'RUB',
     flag: '',
     value: 0,
