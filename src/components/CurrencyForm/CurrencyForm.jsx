@@ -6,6 +6,7 @@ import {useInput} from 'hooks/useInput'
 import {formCurrencyInput} from 'config'
 import {LoaderCustom} from 'components/LoaderCustom'
 import {ErrorMsg} from '../ErrorMsg'
+import {InfoBlock} from 'components/InfoBlock'
 import {useLocalStorage} from 'hooks/localstorage-hook'
 import './CurrencyForm.scss'
 
@@ -27,6 +28,7 @@ export const CurrencyForm = () => {
     'null',
   )
 
+  const [dateUpdate, setDateUpdate] = useState('now')
   const [formDataState, setFormDataState] = useState([...formCurrencyInput])
   const [currencyBase, setCurrencyBase] = useState({})
   const {inputName, inputValue, setInputName, setInputValue} = useInput({
@@ -43,6 +45,7 @@ export const CurrencyForm = () => {
     if (data && !error) {
       setCurrencyBase(data)
       setStorageCurrency(data)
+      setDateUpdate(new Date())
     } else {
       setCurrencyBase(storageCurrency)
     }
@@ -78,6 +81,11 @@ export const CurrencyForm = () => {
         </div>
         {error && <ErrorMsg error={error} />}
       </form>
+      <InfoBlock
+        {...{
+          date: dateUpdate,
+        }}
+      />
     </FormContext.Provider>
   )
 }
