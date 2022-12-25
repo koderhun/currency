@@ -13,7 +13,7 @@ import './CurrencyForm.scss'
 export const FormContext = createContext()
 
 export const CurrencyForm = () => {
-  const {data, error, isLoading, isFetching, refetch} =
+  const {data, error, isLoading, refetch} =
     useGetCurrenciesFormQuery(formCurrencyInput)
 
   const [storageCurrency, setStorageCurrency] = useLocalStorage(
@@ -88,7 +88,6 @@ export const CurrencyForm = () => {
           date: dateUpdate,
         }}
       />
-      <button onClick={() => refetch()}>ok</button>
     </FormContext.Provider>
   )
 }
