@@ -13,15 +13,8 @@ import './CurrencyForm.scss'
 export const FormContext = createContext()
 
 export const CurrencyForm = () => {
-  const {data, error, isLoading, isFetching} = useGetCurrenciesFormQuery(
-    formCurrencyInput,
-    {
-      pollingInterval: 30000,
-      keepUnusedDataFor: 120,
-      refetchOnFocus: true,
-      refetchOnReconnect: true,
-    },
-  )
+  const {data, error, isLoading, isFetching, refetch} =
+    useGetCurrenciesFormQuery(formCurrencyInput)
 
   const [storageCurrency, setStorageCurrency] = useLocalStorage(
     'currencyData',
@@ -50,6 +43,15 @@ export const CurrencyForm = () => {
       setCurrencyBase(storageCurrency)
     }
   }, [data])
+
+  useEffect(() => {
+    // для актуализации данных на фронте
+    const interval = setInterval(() => {
+      console.log('refetch')
+      refetch()
+    }, 600000)
+    return () => clearInterval(interval)
+  }, [])
 
   useEffect(() => {
     if (inputName) {
@@ -86,6 +88,7 @@ export const CurrencyForm = () => {
           date: dateUpdate,
         }}
       />
+      <button onClick={() => refetch()}>ok</button>
     </FormContext.Provider>
   )
 }

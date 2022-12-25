@@ -1,12 +1,13 @@
 {
   "name": "currency",
-  "version": "1.0.0",
+  "version": "1.0.7",
   "private": true,
   "homepage": "https://currency.p1ratrulezzz.com",
+  "buildDate": 1671972602652,
   "scripts": {
     "start": "BROWSER=none npm run dev",
     "dev": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "node ./prebuild.js && react-scripts build",
     "prettier": "prettier --write src/**/*.js src/**/*.jsx",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
@@ -27,6 +28,7 @@
     "@reduxjs/toolkit": "^1.9.1",
     "antd": "^5.0.3",
     "antd-mobile": "^5.26.0",
+    "moment": "^2.29.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.40.0",

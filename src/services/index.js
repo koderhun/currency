@@ -1,3 +1,5 @@
+import moment from 'moment'
+
 export const parserNumber = (val) => {
   if (!val) return 0
   return Number.parseFloat(
@@ -10,4 +12,9 @@ export const formatterNumber = (val) => {
   return `${val}`
     .replace(/\B(?=(\d{3})+(?!\d))/g, ' ')
     .replace(/\.(?=\d{0,2}$)/g, '.')
+}
+
+export const getBuildDate = (epoch) => {
+  const buildDate = moment(epoch).format('DD-MM-YYY HH:MM')
+  return buildDate
 }
