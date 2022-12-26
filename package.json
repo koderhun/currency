@@ -9,9 +9,7 @@
     "dev": "react-scripts start",
     "build": "react-scripts build",
     "prettier": "prettier --write src/**/*.js src/**/*.jsx",
-    "deploy": "gh-pages -d build",
-    "precommit": "console.log('okkkkk')",
-    "prepare": "node ./prebuild && husky install"
+    "deploy": "gh-pages -d build"
   },
   "browserslist": {
     "production": [
