@@ -1,15 +1,14 @@
 {
   "name": "currency",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "private": true,
   "homepage": "https://currency.p1ratrulezzz.com",
-  "buildDate": 1671973566360,
+  "buildDate": 1672034867160,
   "scripts": {
     "start": "BROWSER=none npm run dev",
     "dev": "react-scripts start",
     "build": "node ./prebuild.js && react-scripts build",
     "prettier": "prettier --write src/**/*.js src/**/*.jsx",
-    "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
   "browserslist": {
