@@ -1,5 +1,5 @@
 const fs = require('fs')
-const filePath = './package.json'
+const filePath = './public/meta.json'
 
 const buildNumber = (info) => {
   const oldVersion = info.version
@@ -19,19 +19,16 @@ const buildNumber = (info) => {
   return version
 }
 
-const packageJson = JSON.parse(fs.readFileSync(filePath).toString())
-packageJson.buildDate = new Date().getTime()
-packageJson.version = buildNumber(packageJson)
-
-fs.writeFileSync(filePath, JSON.stringify(packageJson, null, 2))
+const readJson = JSON.parse(fs.readFileSync(filePath).toString())
 
 const jsonData = {
-  buildDate: packageJson.buildDate,
+  buildDate: new Date().getTime(),
+  version: buildNumber(readJson),
 }
 
 const jsonContent = JSON.stringify(jsonData)
 
-fs.writeFile('./public/meta.json', jsonContent, 'utf8', function (error) {
+fs.writeFile(filePath, jsonContent, 'utf8', function (error) {
   if (error) {
     console.log(
       'An error occured while saving build date and time to meta.json',

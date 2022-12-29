@@ -1,9 +1,9 @@
 {
   "name": "currency",
-  "version": "1.0.16",
+  "version": "1.0.17",
   "private": true,
   "homepage": "https://currency.p1ratrulezzz.com",
-  "buildDate": 1672051124974,
+  "buildDate": 1672051456206,
   "scripts": {
     "start": "BROWSER=none npm run dev",
     "dev": "react-scripts start",
