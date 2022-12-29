@@ -6,7 +6,8 @@
   "scripts": {
     "start": "BROWSER=none npm run dev",
     "dev": "react-scripts start",
-    "build": "node ./prebuild.js && git add public/meta.json && react-scripts build",
+    "precommit": "node ./prebuild.js && git add public/meta.json",
+    "build": "react-scripts build",
     "prettier": "prettier --write src/**/*.js src/**/*.jsx",
     "deploy": "npm run build && gh-pages -d build"
   },
