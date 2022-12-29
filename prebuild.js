@@ -2,7 +2,6 @@ const fs = require('fs')
 const filePath = './public/meta.json'
 
 const buildNumber = (info) => {
-  console.log('infff', info)
   const oldVersion = info.version
   info.version = oldVersion || '1.0.0'
 
