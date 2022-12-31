@@ -1,19 +1,15 @@
-import {Layout as LayoutAnt} from 'antd'
 import {General} from 'pages/General'
 import {Route, Routes} from 'react-router-dom'
 import {withClearCache} from 'HOC/withClearCache'
-
-const {Content} = LayoutAnt
+import s from './styles.module.scss'
 
 const MainApp = () => {
   return (
-    <LayoutAnt className='layout'>
-      <Content className='content'>
-        <Routes>
-          <Route path='/' element={<General />} />
-        </Routes>
-      </Content>
-    </LayoutAnt>
+    <div className={s.main}>
+      <Routes>
+        <Route path='/' element={<General />} />
+      </Routes>
+    </div>
   )
 }
 

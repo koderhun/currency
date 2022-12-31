@@ -1,5 +1,7 @@
 :root {
   --brand-gray: #f0f2f5;
+  --primary: #1677ff;
+  --gray: #d9d9d9;
 }
 
 html,
@@ -7,6 +9,10 @@ body {
   background-color: var(--brand-gray);
   height: 100%;
   font-size: 16px;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 body {
@@ -32,94 +38,4 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-}
-
-.site-layout-content {
-  min-height: 280px;
-  padding: 24px;
-  background: #fff;
-}
-
-.logo {
-  float: left;
-  width: 120px;
-  height: 31px;
-  margin: 16px 24px 16px 0;
-  background: rgba(255, 255, 255, 0.3);
-}
-
-.ant-row-rtl .logo {
-  float: right;
-  margin: 16px 0 16px 24px;
-}
-
-[data-theme='dark'] .site-layout-content {
-  background: #141414;
-}
-
-.general {
-  width: 100%;
-  padding: 20px 0;
-  display: flex;
-  justify-content: center;
-
-  .content {
-    width: 100%;
-    max-width: 500px;
-  }
-
-  .title {
-    text-align: center;
-    text-transform: uppercase;
-    font-size: 20px;
-    font-weight: normal;
-  }
-}
-
-.layout {
-  main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-}
-
-.loader-group {
-  transition: all 0.2s ease;
-  min-height: 300px;
-}
-
-.send {
-  width: 100%;
-}
-
-:where(.currencyInput).ant-input-number .ant-input-number-input {
-  height: 45px;
-}
-
-:where(.currencyInput).ant-input-number-group-wrapper {
-  width: 100%;
-}
-
-:where(.currencyInput).ant-input-number-group
-  .ant-input-number-group-addon:first-child {
-  width: 100px;
-}
-
-@media (max-width: 500px) {
-  .general {
-    .content {
-      max-width: 100%;
-      width: 100%;
-      padding: 0 15px;
-    }
-  }
-
-  .send {
-    height: 60px !important;
-  }
-
-  body {
-    align-items: flex-end;
-  }
 }

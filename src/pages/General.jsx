@@ -1,17 +1,11 @@
-import {Typography} from 'antd'
 import {CurrencyForm} from 'components/CurrencyForm/CurrencyForm'
-
-const {Title} = Typography
+import s from './styles.module.scss'
 
 export const General = () => {
   return (
-    <div className='general'>
-      <div className='content'>
-        <Title level={4} className='title'>
-          Converter
-        </Title>
-        <CurrencyForm />
-      </div>
+    <div className={s.general}>
+      <h1 className={s.title}>Converter</h1>
+      <CurrencyForm />
     </div>
   )
 }
