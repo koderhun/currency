@@ -27,6 +27,9 @@ export const CurrencyInput = ({currencyInput}) => {
             placeholder: '0',
             min: 0,
             onChange: (e) => changeItemInput(e.target.value, code),
+            onKeyDown: (e) => {
+              if (e.key === 'Enter') changeItemInput(e.target.value, code)
+            },
             onFocus: handleFocus,
             value: String(value),
           }}
