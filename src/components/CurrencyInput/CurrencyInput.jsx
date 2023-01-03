@@ -5,11 +5,15 @@ import {FormContext} from 'components/CurrencyForm/CurrencyForm'
 import s from './styles.module.scss'
 
 export const CurrencyInput = ({currencyInput}) => {
-  const {code, value} = currencyInput
+  let {code, value} = currencyInput
 
   const {changeItemInput} = useContext(FormContext)
 
   const handleFocus = (event) => event.target.select()
+
+  if (value === 0) {
+    value = ''
+  }
 
   return (
     <div className={s.line}>

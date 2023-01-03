@@ -26,7 +26,7 @@ export const CurrencyForm = () => {
   const [currencyBase, setCurrencyBase] = useState({})
   const {inputName, inputValue, setInputName, setInputValue} = useInput({
     name: '',
-    value: 0,
+    value: '',
   })
 
   const changeItemInput = (value, name) => {
