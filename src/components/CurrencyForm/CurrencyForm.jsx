@@ -8,7 +8,6 @@ import {LoaderCustom} from 'components/LoaderCustom'
 import {ErrorMsg} from '../ErrorMsg'
 import {InfoBlock} from 'components/InfoBlock'
 import {useLocalStorage} from 'hooks/localstorage-hook'
-import './CurrencyForm.scss'
 
 export const FormContext = createContext()
 

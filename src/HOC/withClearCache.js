@@ -48,7 +48,7 @@ export const withClearCache = (Component) => {
         })
       }
       // delete browser cache and hard reload
-      window.location.reload(true)
+      location.reload(true)
     }
 
     return (

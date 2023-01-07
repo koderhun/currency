@@ -1,5 +1,4 @@
 import React from 'react'
-import './styles.scss'
 
 export const ErrorMsg = ({error}) => {
   console.log(error)
