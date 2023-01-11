@@ -8,6 +8,7 @@
     "dev": "next dev",
     "precommit": "node ./prebuild.js && git add public/meta.json",
     "build": "rm -rf ./.next && next build",
+    "export": "next export",
     "prettier": "prettier --write src/**/*.js src/**/*.jsx",
     "deploy": "npm run build && gh-pages -d build"
   },
