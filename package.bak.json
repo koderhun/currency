@@ -4,10 +4,13 @@
   "private": true,
   "homepage": "https://currency.p1ratrulezzz.com",
   "scripts": {
-    "start": "BROWSER=none next start",
+    "start": "BROWSER=none npm run dev",
     "dev": "next dev",
-    "build": "next build",
-    "lint": "next lint"
+    "precommit": "node ./prebuild.js && git add src/meta.json",
+    "build": "rm -rf ./.next && npm run precommit && next build",
+    "export": "npm run build && next export -o build/",
+    "prettier": "prettier --write src/**/*.js src/**/*.jsx",
+    "deploy": "npm run build && gh-pages -d build"
   },
   "browserslist": {
     "production": [
@@ -52,6 +55,7 @@
     "workbox-streams": "^6.5.4"
   },
   "devDependencies": {
+    "gh-pages": "^4.0.0",
     "husky": "^8.0.0",
     "prettier": "^2.8.0",
     "pretty-quick": "^3.1.3",
