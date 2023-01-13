@@ -7,7 +7,7 @@
     "start": "BROWSER=none next start",
     "dev": "next dev",
     "build": "npm run precommit && next build && next export",
-    "precommit": "node ./prebuild.js && git add src/meta.json"
+    "precommit": "node ./prebuild.js && git add public/meta.json"
   },
   "browserslist": {
     "production": [
