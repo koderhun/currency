@@ -7,7 +7,7 @@
     "start": "BROWSER=none next start",
     "dev": "next dev",
     "build": "next build",
-    "lint": "next lint"
+    "precommit": "node ./prebuild.js && git add src/meta.json"
   },
   "browserslist": {
     "production": [
