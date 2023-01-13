@@ -6,7 +6,7 @@
   "scripts": {
     "start": "BROWSER=none next start",
     "dev": "next dev",
-    "build": "next build",
+    "build": "npm run precommit && next build && next export",
     "precommit": "node ./prebuild.js && git add src/meta.json"
   },
   "browserslist": {
