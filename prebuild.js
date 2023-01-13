@@ -1,5 +1,5 @@
 const fs = require('fs')
-const filePath = './public/meta.json'
+const filePath = './out/meta.json'
 
 const buildNumber = (info) => {
   const oldVersion = info.version

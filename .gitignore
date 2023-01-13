@@ -3,7 +3,6 @@
 # dependencies
 /node_modules
 /.pnp
-/public
 .pnp.js
 
 # testing
@@ -11,7 +10,6 @@
 
 # next.js
 /.next/
-/out/
 
 # production
 /build

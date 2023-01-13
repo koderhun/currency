@@ -6,9 +6,9 @@
   "scripts": {
     "start": "BROWSER=none npm run dev",
     "dev": "next dev",
-    "precommit": "node ./prebuild.js && git add public/meta.json",
+    "precommit": "node ./prebuild.js && git add out/meta.json",
     "build": "rm -rf ./.next && npm run precommit && next build",
-    "export": "rm -rf ./out && next export",
+    "export": "npm run build && next export",
     "prettier": "prettier --write src/**/*.js src/**/*.jsx",
     "deploy": "npm run build && gh-pages -d build"
   },
