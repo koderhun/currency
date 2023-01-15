@@ -24,7 +24,7 @@ export const CurrencyInput = ({currencyInput}) => {
         <IMaskInput
           {...{
             className: s.input,
-            mask: Number,
+            mask: '000 000 000',
             radix: '.',
             type: 'tel',
             name: code,

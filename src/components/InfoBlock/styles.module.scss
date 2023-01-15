@@ -1,11 +1,14 @@
 .InfoBlock {
-  position: absolute;
-  bottom: 0;
-  right: 0;
   display: flex;
   justify-content: center;
   width: 100%;
   font-size: 14px;
+
+  @media (min-height: 650px) {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
 }
 
 .version {

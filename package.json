@@ -4,8 +4,8 @@
   "private": true,
   "homepage": "https://currency.p1ratrulezzz.com",
   "scripts": {
-    "start": "BROWSER=none next start",
-    "dev": "next dev",
+    "start": "npm run dev",
+    "dev": "BROWSER=none next dev",
     "build": "npm run precommit && next build && next export",
     "precommit": "node ./prebuild.js && git add public/meta.json"
   },
