@@ -8,11 +8,11 @@ export default class MyDocument extends Document {
           <meta name='msapplication-TileColor' content='#f0f2f5' />
           <meta name='theme-color' content='#1677ff' />
 
-          <link rel='shortcut icon' href='./manifest/favicon.png' />
+          <link rel='shortcut icon' href='./manifest/favicon.svg' />
           <link
             rel='apple-touch-icon'
             sizes='512x512'
-            href='./manifest/android/android-launchericon-512-512.png'
+            href='./manifest/currency.png'
           />
           <meta
             name='keywords'
