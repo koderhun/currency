@@ -5,7 +5,6 @@ export default class MyDocument extends Document {
     return (
       <Html lang='en'>
         <Head>
-          <meta name='msapplication-TileColor' content='#f0f2f5' />
           <meta name='theme-color' content='#1677ff' />
           <link rel='icon' href='./favicon.svg'></link>
           <link rel='apple-touch-icon' sizes='512x512' href='./favicon.svg' />
