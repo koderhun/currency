@@ -7,13 +7,8 @@ export default class MyDocument extends Document {
         <Head>
           <meta name='msapplication-TileColor' content='#f0f2f5' />
           <meta name='theme-color' content='#1677ff' />
-
-          <link rel='shortcut icon' href='./manifest/favicon.svg' />
-          <link
-            rel='apple-touch-icon'
-            sizes='512x512'
-            href='./manifest/currency.png'
-          />
+          <link rel='icon' href='./favicon.svg'></link>
+          <link rel='apple-touch-icon' sizes='512x512' href='./favicon.svg' />
           <meta
             name='keywords'
             content='Currency, converter, pwa, rub, usd, eur, gel'
@@ -29,7 +24,6 @@ export default class MyDocument extends Document {
             crossorigin='use-credentials'
           />
         </Head>
-
         <body>
           <Main />
 

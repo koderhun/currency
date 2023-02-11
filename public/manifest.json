@@ -8,7 +8,7 @@
   "short_name": "currency",
   "icons": [
     {
-      "src": "manifest/currency.png",
+      "src": "./favicon.png",
       "sizes": "512x512"
     }
   ]
