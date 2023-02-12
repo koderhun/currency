@@ -24,8 +24,8 @@ export const CurrencyForm = () => {
   const [formDataState, setFormDataState] = useState([...formCurrencyInput])
   const [currencyBase, setCurrencyBase] = useState({})
   const {inputName, inputValue, setInputName, setInputValue} = useInput({
-    name: '',
-    value: '',
+    name: 0,
+    value: 0,
   })
 
   const changeItemInput = (value, name) => {
@@ -60,12 +60,14 @@ export const CurrencyForm = () => {
         if (inputName === val.code) {
           newFormDataState.push({
             ...val,
-            value: Number(inputValue),
+            value: parseFloat(String(inputValue).replace(/ /g, '')),
           })
         } else {
           newFormDataState.push({
             ...val,
-            value: Number(item.Value) * Number(inputValue),
+            value:
+              Number(item.Value) *
+              parseFloat(String(inputValue).replace(/ /g, '')),
           })
         }
       })

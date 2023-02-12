@@ -6,14 +6,11 @@ import s from './styles.module.scss'
 
 export const CurrencyInput = ({currencyInput}) => {
   let {code, value} = currencyInput
-
+  let newValue = String(value).replace(/\B(?=(\d{3})+(?!\d))/g, ' ')
+  if (!newValue) newValue = '0'
   const {changeItemInput} = useContext(FormContext)
 
   const handleFocus = (event) => event.target.select()
-
-  if (value === 0) {
-    value = ''
-  }
 
   return (
     <div className={s.line}>
@@ -21,11 +18,9 @@ export const CurrencyInput = ({currencyInput}) => {
         <Flags {...{name: code}} />
       </div>
       <div className={s.content}>
-        <IMaskInput
+        <input
           {...{
             className: s.input,
-            mask: Number,
-            radix: '.',
             type: 'tel',
             name: code,
             placeholder: '0',
@@ -35,7 +30,7 @@ export const CurrencyInput = ({currencyInput}) => {
               if (e.key === 'Enter') changeItemInput(e.target.value, code)
             },
             onFocus: handleFocus,
-            value: String(value),
+            value: newValue,
           }}
         />
       </div>
