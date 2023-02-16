@@ -8,6 +8,7 @@ import {LoaderCustom} from 'components/LoaderCustom'
 import {ErrorMsg} from '../ErrorMsg'
 import {InfoBlock} from 'components/InfoBlock'
 import {useLocalStorage} from 'hooks/localstorage-hook'
+// .replace(/\B(?=(\d{3})+(?!\d))/g, ' ')
 
 export const FormContext = createContext()
 
@@ -24,13 +25,15 @@ export const CurrencyForm = () => {
   const [formDataState, setFormDataState] = useState([...formCurrencyInput])
   const [currencyBase, setCurrencyBase] = useState({})
   const {inputName, inputValue, setInputName, setInputValue} = useInput({
-    name: 0,
-    value: 0,
+    name: '',
+    value: '',
   })
 
   const changeItemInput = (value, name) => {
     setInputName(name)
-    setInputValue(value)
+    console.log('vv', value)
+    let newValue = !value ? '' : value
+    setInputValue(newValue)
   }
 
   useEffect(() => {
@@ -58,16 +61,17 @@ export const CurrencyForm = () => {
       formDataState.map((val) => {
         const item = currencyBase[`${inputName}_${val.code}`]
         if (inputName === val.code) {
+          console.log('okkk', inputValue)
           newFormDataState.push({
             ...val,
-            value: parseFloat(String(inputValue).replace(/ /g, '')),
+            value: inputValue,
           })
         } else {
+          console.log('ok2', Number(item.Value) * Number(inputValue.replace(/ /g, '')))
           newFormDataState.push({
             ...val,
-            value:
-              Number(item.Value) *
-              parseFloat(String(inputValue).replace(/ /g, '')),
+            value: Number(item.Value) * Number(inputValue.replace(/ /g, '')),
+            // parseFloat(String(inputValue).replace(/ /g, ''), 2),
           })
         }
       })

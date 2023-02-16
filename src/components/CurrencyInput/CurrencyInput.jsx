@@ -1,17 +1,16 @@
-import {useContext} from 'react'
-import {IMaskInput} from 'react-imask'
+import {useContext, useState} from 'react'
 import {Flags} from 'components/Flags/Flags'
 import {FormContext} from 'components/CurrencyForm/CurrencyForm'
 import s from './styles.module.scss'
 
 export const CurrencyInput = ({currencyInput}) => {
   let {code, value} = currencyInput
-  let newValue = String(value).replace(/\B(?=(\d{3})+(?!\d))/g, ' ')
-  if (!newValue) newValue = '0'
   const {changeItemInput} = useContext(FormContext)
 
   const handleFocus = (event) => event.target.select()
-
+  // console.log('2222', Number(value).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ' '))
+  const normalizeValue = Number(Number(value).toFixed(2))
+  console.log('333', normalizeValue)
   return (
     <div className={s.line}>
       <div className={s.flag}>
@@ -30,7 +29,7 @@ export const CurrencyInput = ({currencyInput}) => {
               if (e.key === 'Enter') changeItemInput(e.target.value, code)
             },
             onFocus: handleFocus,
-            value: newValue,
+            value: normalizeValue
           }}
         />
       </div>
