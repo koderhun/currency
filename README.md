@@ -25,3 +25,5 @@ npm run deploy
 В этом случае, проект загрузится в github, в ветку gh-pages.
 
 blabla
+
+hello world
