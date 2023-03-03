@@ -31,7 +31,6 @@ export const CurrencyForm = () => {
 
   const changeItemInput = (value, name) => {
     setInputName(name)
-    console.log('vv', value)
     let newValue = !value ? '' : value
     setInputValue(newValue)
   }
@@ -49,7 +48,6 @@ export const CurrencyForm = () => {
   useEffect(() => {
     // для актуализации данных на фронте
     const interval = setInterval(() => {
-      console.log('refetch')
       refetch()
     }, 600000)
     return () => clearInterval(interval)
@@ -61,13 +59,11 @@ export const CurrencyForm = () => {
       formDataState.map((val) => {
         const item = currencyBase[`${inputName}_${val.code}`]
         if (inputName === val.code) {
-          console.log('okkk', inputValue)
           newFormDataState.push({
             ...val,
             value: inputValue,
           })
         } else {
-          console.log('ok2', Number(item.Value) * Number(inputValue.replace(/ /g, '')))
           newFormDataState.push({
             ...val,
             value: Number(item.Value) * Number(inputValue.replace(/ /g, '')),
