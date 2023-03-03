@@ -8,7 +8,6 @@ import {LoaderCustom} from 'components/LoaderCustom'
 import {ErrorMsg} from '../ErrorMsg'
 import {InfoBlock} from 'components/InfoBlock'
 import {useLocalStorage} from 'hooks/localstorage-hook'
-// .replace(/\B(?=(\d{3})+(?!\d))/g, ' ')
 
 export const FormContext = createContext()
 
@@ -66,8 +65,7 @@ export const CurrencyForm = () => {
         } else {
           newFormDataState.push({
             ...val,
-            value: Number(item.Value) * Number(inputValue.replace(/ /g, '')),
-            // parseFloat(String(inputValue).replace(/ /g, ''), 2),
+            value: Number(item.Value) * Number(inputValue),
           })
         }
       })

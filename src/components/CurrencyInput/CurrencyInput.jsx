@@ -23,6 +23,7 @@ export const CurrencyInput = ({currencyInput}) => {
             name: code,
             placeholder: '0',
             value: normalizeValue,
+            defaultValue: '',
             decimalSeparator: '.',
             groupSeparator: ' ',
             type: 'tel',
