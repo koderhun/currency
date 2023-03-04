@@ -2,6 +2,9 @@
   --brand-gray: #f0f2f5;
   --primary: #1677ff;
   --gray: #d9d9d9;
+
+  --dark-gray: rgba(64, 64, 64, 0.768627451);
+  --dark-border-color: black;
 }
 
 html,
@@ -78,10 +81,6 @@ code {
   }
 }
 
-.form {
-  position: relative;
-}
-
 .LoaderCustom {
   position: absolute;
   z-index: 5;
@@ -93,6 +92,10 @@ code {
   align-items: center;
   justify-content: center;
   background-color: #f0f2f5ad;
+
+  @media (prefers-color-scheme: dark) {
+    background-color: rgba(0, 0, 0, 0.63);
+  }
 }
 
 .errorMsg {
@@ -113,12 +116,9 @@ code {
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --brand-gray: #404040;
-    --gray: #262626;
-  }
-
-  .general {
+  html,
+  body {
+    background-color: rgba(64, 64, 64, 0.768627451);
     color: white;
   }
 }
