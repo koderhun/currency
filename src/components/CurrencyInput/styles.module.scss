@@ -18,8 +18,8 @@
 
   @media (prefers-color-scheme: dark) {
     background: transparent;
-    color: white;
-    border-color: var(--dark-border-color);
+    color: var(--dark-theme-input-color);
+    border-color: var(--dark-theme-gray);
     &:focus {
       outline: 1px solid gray;
     }
@@ -39,6 +39,6 @@
   border: 1px solid var(--gray);
 
   @media (prefers-color-scheme: dark) {
-    border-color: var(--dark-border-color);
+    border-color: var(--dark-theme-gray);
   }
 }
