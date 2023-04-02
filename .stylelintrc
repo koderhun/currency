@@ -1,6 +1,0 @@
-{
-  "extends": "@logux/stylelint-config",
-  "rules": {
-    "function-disallowed-list": ["rgb", "rgba", "hsl", "hsla"]
-  }
-}
