@@ -1,0 +1,4 @@
+{
+  "extends": "@logux/eslint-config",
+  "overrides": []
+}

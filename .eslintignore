@@ -1,0 +1,4 @@
+dist/
+test/fixtures
+**/app/public
+node_modules
