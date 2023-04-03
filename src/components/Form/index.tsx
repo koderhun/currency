@@ -7,6 +7,11 @@ import s from './styles.module.scss'
 
 export const FormContext = createContext({})
 
+interface val {
+  code: string,
+  value: string
+}
+
 export const Form = () => {
   const { data, error, isLoading, refetch } =
     useGetCurrenciesFormQuery(formCurrencyInput)
@@ -41,7 +46,7 @@ export const Form = () => {
   useEffect(() => {
     if (inputName) {
       let newFormDataState: any = []
-      formState.map((val: string) => {
+      formState.map((val: val) => {
         const item: any = currencyBase[`${inputName}_${val.code}`]
         if (inputName === val.code) {
           newFormDataState.push({
