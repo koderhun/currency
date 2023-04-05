@@ -5,9 +5,16 @@ interface Props {
   value: string
 }
 
-export const useInput = ({ name, value }: Props) => {
-  const [inputName, setInputName] = useState(name)
-  const [inputValue, setInputValue] = useState(value)
+interface InputReturn {
+  inputName: string
+  setInputName: Function
+  inputValue: string
+  setInputValue: Function
+}
+
+export const useInput = ({ name, value }: Props): InputReturn => {
+  const [inputName, setInputName] = useState<string>(name)
+  const [inputValue, setInputValue] = useState<string>(value)
 
   return { inputName, setInputName, inputValue, setInputValue }
 }

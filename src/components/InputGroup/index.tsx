@@ -1,8 +1,20 @@
-import React from 'react'
-import s from './styles.module.scss'
+// @ts-nocheck
+import React, { useContext } from 'react'
+import { InputLine } from '@/components/InputLine'
+import { FormContext } from '@/components/Form'
 
 export const InputGroup = () => {
-  return (
-    <div className={s.inputGroup}>InputGroup</div>
-  )
+  const { formState } = useContext(FormContext)
+
+  return formState.map((item, index) => {
+    console.log('iten', item)
+    return (
+      <InputLine
+        key={item.code + index}
+        {...{
+          item
+        }}
+      />
+    )
+  })
 }

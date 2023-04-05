@@ -1,20 +1,37 @@
+
 import { createContext, useState, useEffect } from 'react'
-import { formCurrencyInput } from '@/config'
+import { formInputs } from '@/config'
 import { useInput } from '@/hooks/useInput'
 import { useLocalStorage } from '@/hooks/localstorage-hook'
 import { useGetCurrenciesFormQuery } from '@/store/currency/currency.api'
+import { LoaderCustom } from '@/components/LoaderCustom'
+import { InputGroup } from '@/components/InputGroup'
 import s from './styles.module.scss'
 
-export const FormContext = createContext({})
 
 interface val {
   code: string,
   value: string
 }
 
+
+interface InputReturn {
+  inputName: string
+  setInputName: Function
+  inputValue: string
+  setInputValue: Function
+}
+
+interface FormContextProps {
+  changeInput?: Function
+  formState?: Object
+}
+
+export const FormContext = createContext({})
+
 export const Form = () => {
   const { data, error, isLoading, refetch } =
-    useGetCurrenciesFormQuery(formCurrencyInput)
+    useGetCurrenciesFormQuery(formInputs)
 
   const [storageCurrency, setStorageCurrency] = useLocalStorage(
     'currencyData',
@@ -22,7 +39,7 @@ export const Form = () => {
   )
 
   const [currencyBase, setCurrencyBase] = useState([])
-  const [formState, setFormState] = useState([...formCurrencyInput])
+  const [formState, setFormState] = useState([...formInputs])
   const { inputName, inputValue, setInputName, setInputValue } = useInput({
     name: '',
     value: '',
@@ -47,7 +64,8 @@ export const Form = () => {
     if (inputName) {
       let newFormDataState: any = []
       formState.map((val: val) => {
-        const item: any = currencyBase[`${inputName}_${val.code}`]
+        const id: string = inputName + "_" + val.code
+        const item: any = currencyBase[id]
         if (inputName === val.code) {
           newFormDataState.push({
             ...val,
@@ -69,7 +87,12 @@ export const Form = () => {
       changeInput,
       formState
     }}>
-      <div className={s.form}>Form</div>
+      <div className={s.form}>
+        <div className={s.loaderGroup}>
+          {isLoading && <LoaderCustom />}
+          <InputGroup />
+        </div>
+      </div>
     </FormContext.Provider>
   )
 }

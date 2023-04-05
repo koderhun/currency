@@ -1,8 +1,13 @@
+import '/node_modules/flag-icons/css/flag-icons.min.css'
+import { Provider } from 'react-redux'
+import { wrapper } from '@/store'
 import Head from 'next/head'
 import '@/styles/globals.scss'
 import type { AppProps } from 'next/app'
 
-export default function App({ Component, pageProps }: AppProps) {
+export default function App({ Component, ...rest }: AppProps) {
+  const { store, props } = wrapper.useWrappedStore(rest)
+  const { pageProps } = props
   return <>
     <Head>
       <meta charSet="utf-8" />
@@ -20,6 +25,8 @@ export default function App({ Component, pageProps }: AppProps) {
       <meta name="theme-color" content="#317EFB" />
       <link rel="manifest" href="./manifest.json" />
     </Head>
-    <Component {...pageProps} />
+    <Provider store={store}>
+      <Component {...pageProps} />
+    </Provider>
   </>
 }
