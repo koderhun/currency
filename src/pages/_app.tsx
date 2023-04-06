@@ -16,9 +16,9 @@ export default function App({ Component, ...rest }: AppProps) {
         name="viewport"
         content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
       />
-      <meta name="description" content="Description" />
-      <meta name="keywords" content="Keywords" />
-      <title>Currency</title>
+      <meta name="description" content="Currency converter" />
+      <meta name="keywords" content="converter, currency" />
+      <title>Converter</title>
 
       <link rel="icon" href="./icons/favicon.svg" type="image/svg+xml" />
       <link rel="apple-touch-icon" href="./icons/favicon.png" />

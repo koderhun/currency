@@ -7,13 +7,10 @@ export const InputGroup = () => {
   const { formState } = useContext(FormContext)
 
   return formState.map((item, index) => {
-    console.log('iten', item)
     return (
       <InputLine
         key={item.code + index}
-        {...{
-          item
-        }}
+        {...item}
       />
     )
   })

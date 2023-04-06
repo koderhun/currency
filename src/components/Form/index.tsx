@@ -6,6 +6,7 @@ import { useLocalStorage } from '@/hooks/localstorage-hook'
 import { useGetCurrenciesFormQuery } from '@/store/currency/currency.api'
 import { LoaderCustom } from '@/components/LoaderCustom'
 import { InputGroup } from '@/components/InputGroup'
+import { Title } from '@/components/Title'
 import s from './styles.module.scss'
 
 
@@ -88,10 +89,9 @@ export const Form = () => {
       formState
     }}>
       <div className={s.form}>
-        <div className={s.loaderGroup}>
-          {isLoading && <LoaderCustom />}
-          <InputGroup />
-        </div>
+        {isLoading && <LoaderCustom />}
+        <Title />
+        <InputGroup />
       </div>
     </FormContext.Provider>
   )

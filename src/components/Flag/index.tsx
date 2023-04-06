@@ -8,7 +8,6 @@ interface Props {
 
 export const Flag = ({ name = '' }: Props) => {
   const nameISO = name.substring(0, 2).toLowerCase()
-
   return (
     <div className={s.flag} title={name}>
       <span className={classnames('fi', `fi-${nameISO}`, s.flagImg)}></span>
