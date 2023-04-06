@@ -5,13 +5,13 @@ const baseUrl =
 export const currencyApi = createApi({
   reducerPath: 'currency/api',
   baseQuery: fetchBaseQuery({
-    baseUrl,
+    baseUrl
   }),
-  endpoints: (build) => ({
+  endpoints: build => ({
     getCurrenciesForm: build.query({
-      query: (currencyArray) => {
+      query: currencyArray => {
         let currencyUrl = '?limit_to_bases=true&'
-        currencyArray?.forEach((val) => {
+        currencyArray?.forEach(val => {
           currencyUrl += `bases[]=${val.code}&`
         })
 
@@ -20,7 +20,7 @@ export const currencyApi = createApi({
         }
       }
     })
-  }),
+  })
 })
 
 export const {
