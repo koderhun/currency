@@ -12,7 +12,7 @@
   "dir": "ltr",
   "lang": "en",
   "orientation": "natural",
-  "display_override": ["fullscreen", "standalone"],
+  "display_override": ["standalone"],
   "categories": ["business", "travel"],
 
   "features": ["Cross Platform", "fast"],

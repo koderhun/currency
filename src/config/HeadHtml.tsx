@@ -19,9 +19,6 @@ export const HeadHtml = () => {
 
       <link rel="apple-touch-icon" href="./icons/favicon.png" />
       <meta name="theme-color" content="#317EFB" />
-      <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#181818" />
-      <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f3f3f3" />
-
       <meta name="apple-mobile-web-app-capable" content="yes" />
       <meta name="apple-mobile-web-app-title" content="Currency" />
       <meta name="apple-mobile-web-app-status-bar-style" content="black" />
