@@ -1,5 +1,5 @@
 // @ts-nocheck
-import { useContext, useState } from 'react'
+import { useContext } from 'react'
 import FormatInput from 'react-currency-input-field'
 import { Flag } from '@/components/Flag'
 import { FormContext } from '@/components/Form'
