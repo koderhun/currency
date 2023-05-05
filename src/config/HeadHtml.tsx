@@ -13,9 +13,9 @@ export const HeadHtml = () => {
       <meta name="keywords" content="converter, currency" />
       <title>Converter</title>
 
-      <link rel="icon" href="/icons/favicon.png" type="image/x-icon" />
-      <link rel="icon" href="/icons/favicon.svg" type="image/svg+xml" />
-      <link rel="manifest" href="/manifest.json" />
+      <link rel="icon" href="./icons/favicon.png" type="image/x-icon" />
+      <link rel="icon" href="./icons/favicon.svg" type="image/svg+xml" />
+      <link rel="manifest" href="./manifest.json" />
 
       <link rel="apple-touch-icon" href="./icons/favicon.png" />
       <meta name="theme-color" content="#317EFB" />
