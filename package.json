@@ -1,31 +1,28 @@
 {
-  "name": "currency",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "@reduxjs/toolkit": "^1.9.3",
-    "@types/node": "18.15.11",
-    "@types/react": "18.0.32",
-    "@types/react-dom": "18.0.11",
-    "classnames": "^2.3.2",
-    "eslint": "8.37.0",
-    "eslint-config-next": "13.2.4",
-    "flag-icons": "^6.6.6",
-    "moment": "^2.29.4",
-    "next": "13.2.4",
-    "next-pwa": "^5.6.0",
-    "next-redux-wrapper": "^8.1.0",
-    "prettier": "^2.8.8",
-    "react": "18.2.0",
-    "react-currency-input-field": "^3.6.10",
-    "react-dom": "18.2.0",
-    "sass": "^1.62.0",
-    "typescript": "5.0.3"
-  }
+	"name": "currency",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start",
+		"lint": "next lint"
+	},
+	"dependencies": {
+		"@reduxjs/toolkit": "^1.9.5",
+		"@types/node": "18.15.11",
+		"@types/react": "18.0.32",
+		"@types/react-dom": "18.0.11",
+		"classnames": "^2.3.2",
+		"flag-icons": "^6.6.6",
+		"moment": "^2.29.4",
+		"next": "13.2.4",
+		"next-pwa": "^5.6.0",
+		"next-redux-wrapper": "^8.1.0",
+		"react": "18.2.0",
+		"react-currency-input-field": "^3.6.10",
+		"react-dom": "18.2.0",
+		"sass": "^1.62.1",
+		"typescript": "5.0.3"
+	}
 }
