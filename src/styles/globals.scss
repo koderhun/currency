@@ -20,7 +20,7 @@
     rgba(255, 255, 255, 0)
   );
 
-  --card-border-rgb: 131, 134, 135;
+  --card-border-rgb: #d7d7d7;
 
   --form-width: 480px;
 
@@ -55,17 +55,10 @@
 html,
 body {
   margin: 0;
-  height: 100%;
 }
 
 body {
   color: var(--text-color);
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
   font-family: var(--font-mono);
 }
 
