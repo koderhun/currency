@@ -22,6 +22,11 @@
       "src": "./icons/screenshot.png",
       "sizes": "414x896",
       "type": "image/png"
+    },
+		{
+      "src": "./icons/screenshot.jpg",
+      "sizes": "414x896",
+      "type": "image/jpg"
     }
   ],
 

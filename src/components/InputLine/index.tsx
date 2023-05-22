@@ -34,6 +34,7 @@ export const InputLine = ({ code, value }: Props) => {
             onValueChange: (value, name) => {
               changeInput(value, code)
             },
+						autocomplete: "off"
           }}
         />
       </div>
