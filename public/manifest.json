@@ -1,6 +1,6 @@
 {
   "id": "/",
-  "theme_color": "#1677ff",
+  "theme_color": "#002d30",
   "background_color": "#f0f2f5",
   "display": "standalone",
   "scope": "/",
@@ -24,13 +24,14 @@
       "type": "image/png"
     },
 		{
-      "src": "./icons/screenshot.jpg",
-      "sizes": "414x896",
+      "src": "./icons/screenshot2.jpg",
+      "sizes": "533x679",
       "type": "image/jpg"
     }
   ],
 
-  "icons": [
+
+	"icons": [
     {
       "src": "./icons/windows11/SmallTile.scale-100.png",
       "sizes": "71x71"
