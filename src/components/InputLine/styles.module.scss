@@ -17,8 +17,8 @@
   border: 0;
   width: 100%;
   color: var(--text-color);
-  outline-color: rgb(22 119 255 / 56%);
-	background: #ffffff3b;
+  outline-color: var(--outline-color);
+	background: var(--bg-input);
 	border-radius: 4px;
 }
 

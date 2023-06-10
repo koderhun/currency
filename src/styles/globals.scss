@@ -28,6 +28,7 @@
 	--bg-gradient: linear-gradient(257deg, rgba(2,71,69,1) 0%, rgba(9,121,118,0.9948354341736695) 35%, rgba(5,177,109,1) 63%, rgba(0,212,255,1) 100%);
 	--bg-input: #ffffff3b;
 	--text-color: white;
+	--outline-color: rgba(0,212,255,1);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -45,6 +46,7 @@
 
     --card-border-rgb: 200, 200, 200;
     --text-color: #ffffff80;
+		--outline-color: white;
   }
 }
 
