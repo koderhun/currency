@@ -14,10 +14,12 @@
   padding: 4px 11px;
   line-height: 1.5714285714285714;
   font-weight: 300;
-  border: 1px solid var(--card-border-rgb);
+  border: 0;
   width: 100%;
   color: var(--text-color);
   outline-color: rgb(22 119 255 / 56%);
+	background: #ffffff3b;
+	border-radius: 4px;
 }
 
 .content {
