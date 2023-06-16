@@ -6,7 +6,6 @@ type TIsLoading = {
 };
 
 export const LoaderCustom = memo(({ isLoading }: TIsLoading) => {
-	console.log("isLoading", isLoading);
 	const loader: string = isLoading ? "Loading..." : "";
 	return <div className={s.loader}>{loader}</div>;
 });
