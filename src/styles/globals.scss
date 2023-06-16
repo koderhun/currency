@@ -62,10 +62,14 @@ body {
   margin: 0;
 }
 
+html {
+	background: var(--bg);
+}
+
 body {
+	min-height: 100vh;
   color: var(--text-color);
   font-family: var(--font-mono);
-	background: var(--bg);
 	background: var(--bg-gradient);
 }
 
