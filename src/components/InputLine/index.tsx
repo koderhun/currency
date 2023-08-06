@@ -26,11 +26,11 @@ export const InputLine = ({ code, value }: Props) => {
 						className: s.input,
 						name: code,
 						placeholder: "0",
-						value: normalizeValue,
+						value: value,
+						decimalScale: 2,
 						defaultValue: "",
 						decimalSeparator: ".",
 						groupSeparator: " ",
-						type: "tel",
 						onValueChange: (value, name) => {
 							changeInput(value, code);
 						},
