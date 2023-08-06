@@ -14,7 +14,7 @@ export const InputLine = ({ code, value }: Props) => {
 	const { changeInput } = useContext(FormContext);
 
 	// const handleFocus = (event: React.ChangeEvent<HTMLInputElement>) => event.target.select()
-	const normalizeValue = Number(Number(value).toFixed(2));
+	// const normalizeValue = Number(Number(value).toFixed(2));
 	return (
 		<div className={s.line}>
 			<div className={s.flag}>
