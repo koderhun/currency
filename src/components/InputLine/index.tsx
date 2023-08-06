@@ -31,6 +31,7 @@ export const InputLine = ({ code, value }: Props) => {
 						defaultValue: "",
 						decimalSeparator: ".",
 						groupSeparator: " ",
+						type: "tel",
 						onValueChange: (value, name) => {
 							changeInput(value, code);
 						},
