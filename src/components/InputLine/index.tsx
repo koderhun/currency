@@ -12,9 +12,6 @@ interface Props {
 
 export const InputLine = ({ code, value }: Props) => {
 	const { changeInput } = useContext(FormContext);
-
-	// const handleFocus = (event: React.ChangeEvent<HTMLInputElement>) => event.target.select()
-	// const normalizeValue = Number(Number(value).toFixed(2));
 	return (
 		<div className={s.line}>
 			<div className={s.flag}>
@@ -28,11 +25,13 @@ export const InputLine = ({ code, value }: Props) => {
 						placeholder: "0",
 						value: value,
 						decimalScale: 2,
-						defaultValue: "",
+						decimalsLimit: 2,
+						fixedDecimalLength: 2,
+						defaultValue: 0,
 						decimalSeparator: ".",
 						groupSeparator: " ",
 						type: "tel",
-						onValueChange: (value, name) => {
+						onValueChange: (value) => {
 							changeInput(value, code);
 						},
 						autoComplete: "off",

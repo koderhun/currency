@@ -30,8 +30,7 @@ interface FormContextProps {
 export const FormContext = createContext({});
 
 export const Form = () => {
-	const { data, error, isLoading, refetch } =
-		useGetCurrenciesFormQuery(formInputs);
+	const { data, error, isLoading } = useGetCurrenciesFormQuery(formInputs);
 
 	const [storageCurrency, setStorageCurrency] = useLocalStorage(
 		"currencyData",
@@ -48,7 +47,7 @@ export const Form = () => {
 	const changeInput = (value: string, name: string) => {
 		const newValue = !value ? "" : value;
 		setInputName(name);
-		setInputValue(newValue);
+		setInputValue(String(newValue));
 	};
 
 	useEffect(() => {
@@ -69,12 +68,12 @@ export const Form = () => {
 				if (inputName === val.code) {
 					newFormDataState.push({
 						...val,
-						value: inputValue,
+						value: Number(inputValue).toFixed(2),
 					});
 				} else {
 					newFormDataState.push({
 						...val,
-						value: Number(item.Value) * Number(inputValue),
+						value: Number(Number(item.Value) * Number(inputValue)).toFixed(2),
 					});
 				}
 			});
