@@ -1,5 +1,3 @@
-// @ts-nocheck
-
 import { createContext, useState, useEffect } from "react";
 import { formInputs } from "@/config";
 import { useInput } from "@/hooks/useInput";
@@ -45,9 +43,8 @@ export const Form = () => {
 	});
 
 	const changeInput = (value: string, name: string) => {
-		const newValue = !value ? "" : value;
 		setInputName(name);
-		setInputValue(String(newValue));
+		setInputValue(value ? value : 0);
 	};
 
 	useEffect(() => {
@@ -68,12 +65,12 @@ export const Form = () => {
 				if (inputName === val.code) {
 					newFormDataState.push({
 						...val,
-						value: Number(inputValue).toFixed(2),
+						value: inputValue,
 					});
 				} else {
 					newFormDataState.push({
 						...val,
-						value: Number(Number(item.Value) * Number(inputValue)).toFixed(2),
+						value: Number(Number(item.Value) * Number(inputValue)),
 					});
 				}
 			});
