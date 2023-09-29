@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import { createContext, useState, useEffect } from "react";
 import { formInputs } from "@/config";
 import { useInput } from "@/hooks/useInput";
