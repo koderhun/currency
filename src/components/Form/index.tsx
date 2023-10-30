@@ -1,5 +1,3 @@
-// @ts-nocheck
-
 import { createContext, useState, useEffect } from "react";
 import { formInputs } from "@/config";
 import { useInput } from "@/hooks/useInput";
@@ -37,7 +35,7 @@ export const Form = () => {
 		"null"
 	);
 
-	const [currencyBase, setCurrencyBase] = useState([]);
+	const [currencyBase, setCurrencyBase] = useState<any>({});
 	const [formState, setFormState] = useState([...formInputs]);
 	const { inputName, inputValue, setInputName, setInputValue } = useInput({
 		name: "",
@@ -46,7 +44,7 @@ export const Form = () => {
 
 	const changeInput = (value: string, name: string) => {
 		setInputName(name);
-		setInputValue(value ? value : 0);
+		setInputValue(value ? value : "0");
 	};
 
 	useEffect(() => {
