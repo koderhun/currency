@@ -13,18 +13,6 @@ interface val {
 	value: string;
 }
 
-interface InputReturn {
-	inputName: string;
-	setInputName: Function;
-	inputValue: string;
-	setInputValue: Function;
-}
-
-interface FormContextProps {
-	changeInput?: Function;
-	formState?: Object;
-}
-
 export const FormContext = createContext({});
 
 export const Form = () => {
@@ -68,9 +56,10 @@ export const Form = () => {
 						value: inputValue,
 					});
 				} else {
+					const res: number = Number(Number(item.Value) * Number(inputValue));
 					newFormDataState.push({
 						...val,
-						value: Number(Number(item.Value) * Number(inputValue)),
+						value: res.toFixed(2),
 					});
 				}
 			});

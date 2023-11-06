@@ -27,7 +27,6 @@ export const InputLine = ({ code, value }: Props) => {
 						decimalScale: 2,
 						decimalsLimit: 2,
 						fixedDecimalLength: 2,
-						defaultValue: 0,
 						decimalSeparator: ".",
 						groupSeparator: " ",
 						type: "tel",
