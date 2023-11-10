@@ -10,12 +10,12 @@ import {InputGroup} from '@/components/InputGroup'
 import {Title} from '@/components/Title'
 import s from './styles.module.scss'
 
-interface val {
+export interface TVal {
   code: string
   value: string
 }
 
-export const FormContext = createContext({})
+export const FormContext = createContext<undefined | {}>({})
 
 export const Form = () => {
   const {data, error, isLoading} = useGetCurrenciesFormQuery(formInputs)
@@ -49,7 +49,7 @@ export const Form = () => {
   useEffect(() => {
     if (inputName) {
       let newFormDataState: any = []
-      formState.map((val: val) => {
+      formState.forEach((val: TVal) => {
         const id: string = inputName + '_' + val.code
         const item: any = currencyBase[id]
         if (inputName === val.code) {
@@ -74,8 +74,7 @@ export const Form = () => {
       value={{
         changeInput,
         formState,
-      }}
-    >
+      }}>
       <div className={s.form}>
         <LoaderCustom {...{isLoading}} />
         <Title />
