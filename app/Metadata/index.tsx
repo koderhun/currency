@@ -1,4 +1,3 @@
-import Head from 'next/head'
 
 export const metatext = {
   title: 'Currency Converter',
@@ -18,18 +17,21 @@ export const metadata = {
     },
   ],
   logoTitle: metatext.title,
-  picturePath: '/picture/',
+  picturePath: '/',
 }
 
 export const Metadata = () => {
   return (
-    <Head>
-      
+    <>
       <title>{metadata.title}</title>
 
-      <link rel="icon" href={`${metadata.picturePath}favicon.svg`} type="image/svg" />
+      <link
+        rel="icon"
+        href={`${metadata.picturePath}favicon.svg`}
+        type="image/svg"
+      />
       <link rel="shortcut icon" href={`${metadata.picturePath}favicon.ico`} />
-      
+
       {/* android */}
       <link rel="manifest" href={metadata.manifest} />
 
@@ -39,10 +41,17 @@ export const Metadata = () => {
       <meta name="apple-mobile-web-app-capable" content="yes" />
       <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 
-      <link rel="apple-touch-icon" href={`${metadata.picturePath}apple-touch-icon-180x180.png`} sizes="180x180" />
-      <link rel="mask-icon" href={`${metadata.picturePath}maskable-icon-512x512.png`} color="#ffffff" />
+      <link
+        rel="apple-touch-icon"
+        href={`${metadata.picturePath}apple-touch-icon-180x180.png`}
+        sizes="180x180"
+      />
+      <link
+        rel="mask-icon"
+        href={`${metadata.picturePath}maskable-icon-512x512.png`}
+        color="#ffffff"
+      />
 
-      
       {/* SEO  */}
       <meta name="description" content={metadata.description} />
       <meta name="keywords" content={metadata.keywords.join(', ')} />
@@ -57,6 +66,6 @@ export const Metadata = () => {
           {...(url && {href: url})}
         />
       ))}
-    </Head>
+    </>
   )
 }
