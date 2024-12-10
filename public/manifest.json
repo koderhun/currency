@@ -15,24 +15,28 @@
 
   "features": ["Cross Platform", "fast"],
 
-  "screenshots": [
+  "icons": [
     {
-      "src": "icons/screenshot.png",
-      "sizes": "414x896",
+      "src": "/picture/pwa-64x64.png",
+      "sizes": "64x64",
       "type": "image/png"
     },
     {
-      "src": "icons/screenshot2.jpg",
-      "sizes": "533x679",
-      "type": "image/jpg"
-    }
-  ],
-
-  "icons": [
+      "src": "/picture/pwa-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
     {
-      "src": "icons/logo.svg",
-      "sizes": "any",
-      "type": "image/svg+xml"
+      "src": "/picture/pwa-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/picture/maskable-icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ]
+
 }

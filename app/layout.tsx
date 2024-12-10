@@ -5,10 +5,8 @@ import {Metadata} from '@/Metadata'
 
 export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
-    <html lang="en">
-      <head>
-        <Metadata />
-      </head>
+    <html lang={'en'}>
+      <Metadata />
       <body>
         <main>
           <Providers>{children}</Providers>

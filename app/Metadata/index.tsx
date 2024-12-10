@@ -1,3 +1,5 @@
+import Head from 'next/head'
+
 export const metatext = {
   title: 'Currency Converter',
 }
@@ -5,10 +7,9 @@ export const metatext = {
 export const metadata = {
   title: metatext.title,
   description: 'Создано в учебных целях',
-  generator: 'Next.js',
   manifest: '/manifest.json',
   keywords: ['nextjs', 'nextjs14', 'next14', 'pwa', 'next-pwa'],
-  themeColor: [{media: '(prefers-color-scheme: dark)', color: '#fff'}],
+  themeColor: [{media: '(prefers-color-scheme: dark)', color: '#ffffff'}],
   authors: [
     {name: 'Koderhun'},
     {
@@ -16,24 +17,34 @@ export const metadata = {
       url: 'https://www.github.com/koderhun/',
     },
   ],
-  viewport:
-    'minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, viewport-fit=cover',
-  icons: [
-    {rel: 'apple-touch-icon', url: 'icons/logo.svg'},
-    {rel: 'icon', url: 'icons/logo.svg'},
-  ],
   logoTitle: metatext.title,
+  picturePath: '/picture/',
 }
 
 export const Metadata = () => {
   return (
-    <>
-      <meta charSet="UTF-8" />
+    <Head>
+      
       <title>{metadata.title}</title>
-      <link rel="icon" href="favicon.svg" type="image/svg" />
-      <meta name="description" content={metadata.description} />
-      <meta name="generator" content={metadata.generator} />
+
+      <link rel="icon" href={`${metadata.picturePath}favicon.svg`} type="image/svg" />
+      <link rel="shortcut icon" href={`${metadata.picturePath}favicon.ico`} />
+      
+      {/* android */}
       <link rel="manifest" href={metadata.manifest} />
+
+      {/* apple */}
+      <meta name="application-name" content={metadata.title} />
+      <meta name="apple-mobile-web-app-title" content={metadata.title} />
+      <meta name="apple-mobile-web-app-capable" content="yes" />
+      <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+      <link rel="apple-touch-icon" href={`${metadata.picturePath}apple-touch-icon-180x180.png`} sizes="180x180" />
+      <link rel="mask-icon" href={`${metadata.picturePath}maskable-icon-512x512.png`} color="#ffffff" />
+
+      
+      {/* SEO  */}
+      <meta name="description" content={metadata.description} />
       <meta name="keywords" content={metadata.keywords.join(', ')} />
       {metadata.themeColor.map(({media, color}, index) => (
         <meta key={index} name="theme-color" media={media} content={color} />
@@ -46,10 +57,6 @@ export const Metadata = () => {
           {...(url && {href: url})}
         />
       ))}
-      <meta name="viewport" content={metadata.viewport} />
-      {metadata.icons.map(({rel, url}, index) => (
-        <link key={index} rel={rel} href={url} />
-      ))}
-    </>
+    </Head>
   )
 }
