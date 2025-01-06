@@ -1,4 +1,3 @@
-
 export const metatext = {
   title: 'Currency Converter',
 }

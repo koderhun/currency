@@ -74,7 +74,8 @@ export const Form = () => {
       value={{
         changeInput,
         formState,
-      }}>
+      }}
+    >
       <div className={s.form}>
         <LoaderCustom {...{isLoading}} />
         <Title />
