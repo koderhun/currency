@@ -1,4 +1,5 @@
 import './globals.scss'
+import 'flag-icons/css/flag-icons.min.css'
 
 import type {ReactNode} from 'react'
 import {StoreHydrator} from './components/StoreHydrator/StoreHydrator'

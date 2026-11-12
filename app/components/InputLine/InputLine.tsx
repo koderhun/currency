@@ -7,17 +7,21 @@ interface PropsType {
   currencyCode: string
   inputValue: string
   changeCurrencyHandler: (args: {fromCode: string; amount: string}) => void
+  onRemove?: () => void
+  canRemove?: boolean
 }
 
 export const InputLine = ({
   currencyCode,
   inputValue,
   changeCurrencyHandler,
+  onRemove,
+  canRemove = true,
 }: PropsType) => {
   return (
     <div className={s.line}>
       <div className={s.flag}>
-        <Flag {...{name: currencyCode}} />
+        <Flag {...{code: currencyCode}} />
       </div>
       <div className={s.content}>
         <FormatInput
@@ -41,6 +45,19 @@ export const InputLine = ({
             autoComplete: 'off',
           }}
         />
+      </div>
+
+      <div>
+        {onRemove && (
+          <button
+            type="button"
+            onClick={onRemove}
+            disabled={!canRemove}
+            aria-label={`Удалить ${currencyCode}`}
+            className={`${s.removeButton} ${!canRemove ? s.removeButtonDisabled : ''}`}>
+            ✕
+          </button>
+        )}
       </div>
     </div>
   )

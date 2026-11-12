@@ -2,15 +2,15 @@ import classnames from 'classnames'
 import s from './styles.module.scss'
 
 interface Props {
-  name: string
+  code: string
 }
 
-export const Flag = ({name = ''}: Props) => {
-  const nameISO = name.substring(0, 2).toLowerCase()
+export const Flag = ({code = ''}: Props) => {
+  const nameISO = code.substring(0, 2).toLowerCase()
   return (
-    <div className={s.flag} title={name}>
+    <div className={s.flag} title={code}>
       <span className={classnames('fi', `fi-${nameISO}`, s.flagImg)}></span>
-      <span className={s.name}>{name}</span>
+      <span className={s.name}>{code}</span>
     </div>
   )
 }

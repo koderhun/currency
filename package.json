@@ -6,10 +6,12 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "update-currencies": "curl -o app/lib/currencies/currencies.json https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies.min.json"
   },
   "dependencies": {
     "classnames": "^2.5.1",
+    "country-currency-emoji-flags": "^1.1.1",
     "flag-icons": "^7.6.0",
     "next": "16.4.5",
     "next-pwa": "^5.6.0",

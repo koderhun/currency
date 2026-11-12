@@ -1,0 +1,43 @@
+.container {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+
+}
+
+.select {
+  height: 50px;
+  font-size: 16px;
+  padding: 4px 11px;
+  line-height: 1.5714285714285714;
+  font-weight: 300;
+  border: 0;
+  width: 100%;
+  color: var(--brand-black);
+  outline-color: var(--outline-color);
+  background: var(--input-bg);
+  border-radius: 4px;
+
+  option {
+    color: var(--brand-black);
+    background: var(--input-bg);
+  }
+}
+
+.addButton {
+  height: 50px;
+  font-size: 16px;
+  padding: 4px 11px;
+  line-height: 1.5714285714285714;
+  font-weight: 300;
+  border: 0;
+  color: var(--brand-black);
+  background-color: var(--input-bg);
+  border-radius: 4px;
+  cursor: pointer;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
