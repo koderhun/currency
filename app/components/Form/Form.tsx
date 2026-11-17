@@ -4,6 +4,7 @@ import {useCurrencyConverter} from '@/hooks/useCurrencyConverter'
 import {InputLine} from '@/components/InputLine/InputLine'
 import {CurrencyPicker} from '@/components/CurrencyPicker/CurrencyPicker'
 import {useSettingsStore} from '@/store/settingsStore'
+import {useCurrencyListStore} from '@/store/currencyListStore'
 import s from './styles.module.scss'
 
 const ALL_CURRENCIES = [
@@ -26,11 +27,11 @@ const ALL_CURRENCIES = [
 export function Form() {
   const {convert} = useCurrencyConverter()
 
-  const [currencies, setCurrencies] = useState<{code: string}[]>([
-    {code: 'USD'},
-    {code: 'EUR'},
-    {code: 'RUB'},
-  ])
+  // список валют теперь из store
+  const currencies = useCurrencyListStore((s) => s.currencies)
+  const addCurrency = useCurrencyListStore((s) => s.addCurrency)
+  const removeCurrency = useCurrencyListStore((s) => s.removeCurrency)
+
   const [selected, setSelected] = useState('')
   const [source, setSource] = useState({code: 'USD', amount: ''})
 
@@ -73,25 +74,22 @@ export function Form() {
 
   const handleAdd = () => {
     if (!safeSelected) return
-    if (currencies.some((c) => c.code === safeSelected)) return
-    setCurrencies((prev) => [...prev, {code: safeSelected}])
+    addCurrency(safeSelected) // проверка дубликата внутри store
     setSelected('')
   }
 
   const handleRemove = (code: string) => {
-    // Не даём удалить последнюю валюту — иначе конвертировать некуда
     if (currencies.length <= 1) return
 
-    setCurrencies((prev) => prev.filter((c) => c.code !== code))
-
-    // Если удалили источник — переносим источник на первую оставшуюся валюту,
-    // сохраняя введённую сумму (она уже пересчитана в values для этой валюты)
+    // если удаляем источник — сначала переносим source на другую валюту
     if (source.code === code) {
       const next = currencies.find((c) => c.code !== code)
       if (next) {
         setSource({code: next.code, amount: values[next.code] ?? ''})
       }
     }
+
+    removeCurrency(code) // проверка «последней валюты» внутри store
   }
 
   const settingsEnabled = useSettingsStore((e) => e.settingsEnabled)

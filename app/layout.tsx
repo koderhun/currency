@@ -3,6 +3,7 @@ import 'flag-icons/css/flag-icons.min.css'
 
 import type {ReactNode} from 'react'
 import {StoreHydrator} from './components/StoreHydrator/StoreHydrator'
+import {AppLoader} from './components/AppLoader/AppLoader'
 const API_URL: string =
   'https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/usd.json'
 
@@ -20,7 +21,9 @@ export default async function RootLayout({children}: {children: ReactNode}) {
   return (
     <html>
       <body>
-        <StoreHydrator rates={rates}>{children}</StoreHydrator>
+        <StoreHydrator rates={rates}>
+          <AppLoader>{children}</AppLoader>
+        </StoreHydrator>
       </body>
     </html>
   )

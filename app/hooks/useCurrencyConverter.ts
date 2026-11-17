@@ -3,7 +3,7 @@
 import {useCallback} from 'react'
 import {useCurrencyStore} from '@/store/currencyStore'
 
- // берем как базу USD
+// берем как базу USD
 const BASE = 'usd'
 
 export function useCurrencyConverter() {

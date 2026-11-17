@@ -10,6 +10,9 @@ interface SettingsStore {
   setHasHydrated: (hasHydrated: boolean) => void
 }
 
+// Текущая версия схемы. Увеличивайте при изменении структуры настроек.
+const SETTINGS_VERSION = 1
+
 export const useSettingsStore = create<SettingsStore>()(
   persist(
     (set) => ({
@@ -24,8 +27,37 @@ export const useSettingsStore = create<SettingsStore>()(
     }),
     {
       name: 'settings',
-      onRehydrateStorage: () => (state) => {
-        // state — это уже восстановленный store; если localStorage пуст, state тоже есть
+      version: SETTINGS_VERSION,
+      skipHydration: true,
+
+      // Сохраняем только реальные настройки — не служебный флаг hasHydrated.
+      partialize: (state) => ({
+        settingsEnabled: state.settingsEnabled,
+      }),
+
+      // Миграция при изменении версии схемы.
+      // persistedState — то, что лежит в localStorage (уже распарсенный state).
+      migrate: (persistedState, version) => {
+        if (version === 0) {
+          // Пример: раньше поле называлось иначе или отсутствовало.
+          // Возвращаем объект, совместимый с текущей схемой.
+          return {
+            settingsEnabled:
+              typeof (persistedState as {settingsEnabled?: unknown})
+                ?.settingsEnabled === 'boolean'
+                ? (persistedState as {settingsEnabled: boolean}).settingsEnabled
+                : false,
+          }
+        }
+        return persistedState as {settingsEnabled: boolean}
+      },
+
+      // Вызывается после попытки восстановления — и при успехе, и при ошибке.
+      onRehydrateStorage: () => (state, error) => {
+        if (error) {
+          console.error('Failed to rehydrate settings:', error)
+        }
+        // Ставим флаг в любом случае, иначе AppLoader зависнет навсегда.
         state?.setHasHydrated(true)
       },
     },
