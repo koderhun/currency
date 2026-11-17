@@ -1,6 +1,8 @@
 // app/manifest.ts
 import type {MetadataRoute} from 'next'
 
+export const dynamic = 'force-static' // ← Добавьте эту строку
+
 export default function manifest(): MetadataRoute.Manifest {
   return {
     name: 'Currency Converter',
