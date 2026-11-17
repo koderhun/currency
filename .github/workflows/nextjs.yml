@@ -24,8 +24,7 @@ jobs:
       # pnpm нужно установить ДО setup-node, иначе cache: 'pnpm' не сработает
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
-        with:
-          version: 9
+
 
       - name: Setup Node
         uses: actions/setup-node@v4
