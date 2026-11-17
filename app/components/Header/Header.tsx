@@ -1,6 +1,7 @@
 'use client'
 import {useState} from 'react'
 import s from './styles.module.scss'
+import {SettingsToggle} from '../SettingsToggle/SettingsToggle'
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -33,6 +34,9 @@ export const Header = () => {
             <a href="#about" className={s.navLink} onClick={toggleMenu}>
               About
             </a>
+          </li>
+          <li className={s.navItem}>
+            <SettingsToggle />
           </li>
         </ul>
       </nav>

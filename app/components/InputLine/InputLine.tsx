@@ -1,6 +1,9 @@
 'use client'
+
 import {Flag} from '@/components/Flag'
 import FormatInput from 'react-currency-input-field'
+import {useSettingsStore} from '@/store/settingsStore'
+
 import s from './styles.module.scss'
 
 interface PropsType {
@@ -18,6 +21,8 @@ export const InputLine = ({
   onRemove,
   canRemove = true,
 }: PropsType) => {
+  const settingsEnabled = useSettingsStore((e) => e.settingsEnabled)
+
   return (
     <div className={s.line}>
       <div className={s.flag}>
@@ -37,9 +42,16 @@ export const InputLine = ({
             groupSeparator: ' ',
             type: 'tel',
             onValueChange: (value) => {
+              const safe =
+                value === undefined ||
+                value === null ||
+                Number.isNaN(value as unknown as number)
+                  ? ''
+                  : String(value)
+
               changeCurrencyHandler({
                 fromCode: currencyCode,
-                amount: String(value),
+                amount: safe,
               })
             },
             autoComplete: 'off',
@@ -47,18 +59,20 @@ export const InputLine = ({
         />
       </div>
 
-      <div>
-        {onRemove && (
-          <button
-            type="button"
-            onClick={onRemove}
-            disabled={!canRemove}
-            aria-label={`Удалить ${currencyCode}`}
-            className={`${s.removeButton} ${!canRemove ? s.removeButtonDisabled : ''}`}>
-            ✕
-          </button>
-        )}
-      </div>
+      {settingsEnabled && (
+        <div>
+          {onRemove && (
+            <button
+              type="button"
+              onClick={onRemove}
+              disabled={!canRemove}
+              aria-label={`Удалить ${currencyCode}`}
+              className={`${s.removeButton} ${!canRemove ? s.removeButtonDisabled : ''}`}>
+              ✕
+            </button>
+          )}
+        </div>
+      )}
     </div>
   )
 }

@@ -19,7 +19,6 @@ $breakpoint: 768px;
   white-space: nowrap;
 }
 
-/* ---------- Бургер ---------- */
 .burger {
   display: flex;
   flex-direction: column;
@@ -46,7 +45,6 @@ $breakpoint: 768px;
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-/* Анимация превращения в крестик */
 .burgerActive .burgerLine:nth-child(1) {
   transform: translateY(8.5px) rotate(45deg);
 }
@@ -57,16 +55,16 @@ $breakpoint: 768px;
   transform: translateY(-8.5px) rotate(-45deg);
 }
 
-/* ---------- Навигация ---------- */
 .nav {
   position: absolute;
   top: $header-height;
   left: 0;
   right: 0;
-  background-color: #1e293b;
+  background-color: white;
   overflow: hidden;
   max-height: 0;
   transition: max-height 0.3s ease;
+  z-index: 10;
 
   @media (min-width: $breakpoint) {
     position: static;
@@ -94,7 +92,9 @@ $breakpoint: 768px;
 }
 
 .navItem {
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  border-top: 1px solid var(--border-color);
 
   @media (min-width: $breakpoint) {
     border-top: none;
@@ -104,9 +104,10 @@ $breakpoint: 768px;
 .navLink {
   display: block;
   padding: 16px 20px;
-  color: #fff;
   text-decoration: none;
-  transition: background-color 0.2s ease;
+  transition: var(--transition);
+  color:var(--brand-black);
+  border-bottom: 1px solid var(--border-color);
 
   &:hover {
     background-color: rgba(255, 255, 255, 0.1);
@@ -114,10 +115,12 @@ $breakpoint: 768px;
 
   @media (min-width: $breakpoint) {
     padding: 8px 0;
+    color: var(--brand-white);
 
     &:hover {
       background: none;
-      color: #38bdf8;
+      color: var(--brand-white);
+      opacity: 0.8;
     }
   }
 }
