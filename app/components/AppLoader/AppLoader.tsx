@@ -5,7 +5,7 @@ import {useSettingsStore} from '@/store/settingsStore'
 import {useCurrencyListStore} from '@/store/currencyListStore'
 import s from './styles.module.scss'
 
-const UI_DELAY_MS = 1000
+const UI_DELAY_MS = 100
 
 export function AppLoader({children}: {children: React.ReactNode}) {
   const settingsHydrated = useSettingsStore((s) => s.hasHydrated)
