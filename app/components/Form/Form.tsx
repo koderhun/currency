@@ -1,10 +1,10 @@
 'use client'
 import {useMemo, useState} from 'react'
-import {useCurrencyConverter} from '@/hooks/useCurrencyConverter'
-import {InputLine} from '@/components/InputLine/InputLine'
-import {CurrencyPicker} from '@/components/CurrencyPicker/CurrencyPicker'
-import {useSettingsStore} from '@/store/settingsStore'
-import {useCurrencyListStore} from '@/store/currencyListStore'
+import {useCurrencyConverter} from '$/hooks/useCurrencyConverter'
+import {InputLine} from '$/components/InputLine/InputLine'
+import {CurrencyPicker} from '$/components/CurrencyPicker/CurrencyPicker'
+import {useSettingsStore} from '$/store/settingsStore'
+import {useCurrencyListStore} from '$/store/currencyListStore'
 import s from './styles.module.scss'
 
 const ALL_CURRENCIES = [

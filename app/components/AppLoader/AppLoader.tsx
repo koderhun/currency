@@ -1,8 +1,8 @@
 // components/AppLoader/AppLoader.tsx
 'use client'
 import {useEffect, useState} from 'react'
-import {useSettingsStore} from '@/store/settingsStore'
-import {useCurrencyListStore} from '@/store/currencyListStore'
+import {useSettingsStore} from '$/store/settingsStore'
+import {useCurrencyListStore} from '$/store/currencyListStore'
 import s from './styles.module.scss'
 
 const UI_DELAY_MS = 100

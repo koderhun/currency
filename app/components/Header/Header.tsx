@@ -1,4 +1,5 @@
 'use client'
+import Link from 'next/link'
 import {useState} from 'react'
 import s from './styles.module.scss'
 import {SettingsToggle} from '../SettingsToggle/SettingsToggle'
@@ -26,14 +27,14 @@ export const Header = () => {
       <nav className={`${s.nav} ${isOpen ? s.navOpen : ''}`}>
         <ul className={s.navList}>
           <li className={s.navItem}>
-            <a href="#home" className={s.navLink} onClick={toggleMenu}>
+            <Link href="/" className={s.navLink} onClick={toggleMenu}>
               Home
-            </a>
+            </Link>
           </li>
           <li className={s.navItem}>
-            <a href="#about" className={s.navLink} onClick={toggleMenu}>
+            <Link href="/about" className={s.navLink} onClick={toggleMenu}>
               About
-            </a>
+            </Link>
           </li>
           <li className={s.navItem}>
             <SettingsToggle />

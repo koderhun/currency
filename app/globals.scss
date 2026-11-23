@@ -40,7 +40,7 @@ html {
 
 a {
   color: inherit;
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -50,16 +50,22 @@ a {
 }
 
 main {
-  display: flex;
-  justify-content: center;
-  padding: 20px 0 20px 0;
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-  @media (max-height: 700px) {
-    min-height: 0;
-  }
+  padding: 0 10px 10px 10px;
+}
+
+.content {
+  padding: 0 20px 20px 20px;
+}
+
+h1 {
+  font-size: 42px;
+}
+
+ol {
+  margin: 20px 0;
+}
+
+.text-overflow {
+  text-overflow: ellipsis;
+  overflow: hidden;
 }

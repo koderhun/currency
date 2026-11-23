@@ -1,5 +1,5 @@
 'use client'
-import {useSettingsStore} from '@/store/settingsStore'
+import {useSettingsStore} from '$/store/settingsStore'
 import s from './styles.module.scss'
 
 export function SettingsToggle() {

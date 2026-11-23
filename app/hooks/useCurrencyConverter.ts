@@ -1,7 +1,7 @@
 'use client'
 
 import {useCallback} from 'react'
-import {useCurrencyStore} from '@/store/currencyStore'
+import {useCurrencyStore} from '$/store/currencyStore'
 
 // берем как базу USD
 const BASE = 'usd'

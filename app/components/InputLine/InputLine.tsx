@@ -1,8 +1,8 @@
 'use client'
 
-import {Flag} from '@/components/Flag'
+import {Flag} from '$/components/Flag'
 import FormatInput from 'react-currency-input-field'
-import {useSettingsStore} from '@/store/settingsStore'
+import {useSettingsStore} from '$/store/settingsStore'
 
 import s from './styles.module.scss'
 

@@ -60,7 +60,7 @@ $breakpoint: 768px;
   top: $header-height;
   left: 0;
   right: 0;
-  background-color: white;
+  background-color: hsl(144.84deg 100% 26.02% / 82%);
   overflow: hidden;
   max-height: 0;
   transition: max-height 0.3s ease;
@@ -94,6 +94,7 @@ $breakpoint: 768px;
 .navItem {
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   border-top: 1px solid var(--border-color);
 
   @media (min-width: $breakpoint) {
@@ -101,12 +102,16 @@ $breakpoint: 768px;
   }
 }
 
+.navItem button {
+  padding: 16px 20px;
+}
+
 .navLink {
   display: block;
   padding: 16px 20px;
   text-decoration: none;
   transition: var(--transition);
-  color:var(--brand-black);
+  color:var(--brand-white);
   border-bottom: 1px solid var(--border-color);
 
   &:hover {

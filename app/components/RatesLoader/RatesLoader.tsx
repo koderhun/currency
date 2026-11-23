@@ -1,7 +1,7 @@
 // components/RatesLoader/RatesLoader.tsx
 'use client'
 import {useEffect} from 'react'
-import {useCurrencyStore} from '@/store/currencyStore'
+import {useCurrencyStore} from '$/store/currencyStore'
 
 export function RatesLoader() {
   const setRates = useCurrencyStore((s) => s.setRates)
