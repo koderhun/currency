@@ -121,6 +121,7 @@ $breakpoint: 768px;
   @media (min-width: $breakpoint) {
     padding: 8px 0;
     color: var(--brand-white);
+    border: 0;
 
     &:hover {
       background: none;

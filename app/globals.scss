@@ -1,5 +1,7 @@
 @use "tailwindcss";
 
+$header-height: 64px;
+$breakpoint: 768px;
 
 :root {
   --bg: #0faa31;
@@ -54,6 +56,17 @@ a {
 
 main {
   padding: 0 10px 10px 10px;
+}
+
+.maincenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 64px);
+
+  // @media (min-width: $breakpoint) {
+  //   align-items: center;
+  // }
 }
 
 .content {

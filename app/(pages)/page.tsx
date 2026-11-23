@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <>
       <Header />
-      <main>
+      <main className="maincenter">
         <Suspense fallback={<div>Loading...</div>}>
           <Form />
         </Suspense>
