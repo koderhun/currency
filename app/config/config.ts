@@ -39,3 +39,20 @@ export const formInputs = [
     value: '',
   },
 ]
+
+export const APP_CONFIG = {
+  name: 'Currency Converter',
+  shortName: 'Currency',
+  description: 'This application is a household currency converter.',
+  themeColor: '#16a34a',
+  backgroundColor: '#ffffff',
+  startUrl: '/',
+  scope: '/',
+  display: 'standalone' as const,
+  icons: {
+    favicon: '/favicon.png',
+    apple: '/apple-touch-icon.png',
+    pwa192: '/pwa-192x192.png',
+    pwa512: '/pwa-512x512.png',
+  },
+} as const

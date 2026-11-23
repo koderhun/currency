@@ -1,1 +1,1 @@
-export {formInputs, API_URL} from './config'
+export {formInputs, API_URL, APP_CONFIG} from './config'

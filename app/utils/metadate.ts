@@ -1,14 +1,17 @@
+// lib/metadata.ts
 import type {Metadata} from 'next'
+import {APP_CONFIG} from '$/config'
 
 export const metadata: Metadata = {
-  title: 'Currency Converter',
-  description: 'Конвертер валют',
+  title: APP_CONFIG.name,
+  description: APP_CONFIG.description,
   appleWebApp: {
     capable: true,
     statusBarStyle: 'default',
-    title: 'Currency',
+    title: APP_CONFIG.shortName,
   },
   icons: {
-    apple: '/icon-192.png',
+    icon: APP_CONFIG.icons.favicon,
+    apple: APP_CONFIG.icons.apple,
   },
 }
