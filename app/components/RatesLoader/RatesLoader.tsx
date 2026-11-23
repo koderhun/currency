@@ -1,15 +1,13 @@
-// components/RatesLoader/RatesLoader.tsx
 'use client'
 import {useEffect} from 'react'
 import {useCurrencyStore} from '$/store/currencyStore'
+import {API_URL} from '$/config'
 
 export function RatesLoader() {
   const setRates = useCurrencyStore((s) => s.setRates)
 
   useEffect(() => {
-    fetch(
-      'https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/usd.json',
-    )
+    fetch(API_URL)
       .then((res) => {
         if (!res.ok) throw new Error('Failed to fetch rates')
         return res.json()

@@ -36,6 +36,9 @@ body {
 html {
   background: var(--bg);
   color: var(--text-color);
+
+  background: linear-gradient(to bottom right, #16a34a, #dc2626);
+  background-attachment: fixed; // чтобы градиент не «размазывался» при скролле
 }
 
 a {
