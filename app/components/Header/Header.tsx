@@ -2,12 +2,12 @@
 import Link from 'next/link'
 import {useState} from 'react'
 import s from './styles.module.scss'
-import {SettingsToggle} from '../SettingsToggle/SettingsToggle'
+import {SettingsToggle} from '$/components/SettingsToggle/SettingsToggle'
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false)
-
   const toggleMenu = () => setIsOpen((prev) => !prev)
+  const closeMenu = () => setIsOpen(false)
 
   return (
     <header className={s.header}>
@@ -27,17 +27,17 @@ export const Header = () => {
       <nav className={`${s.nav} ${isOpen ? s.navOpen : ''}`}>
         <ul className={s.navList}>
           <li className={s.navItem}>
-            <Link href="/" className={s.navLink} onClick={toggleMenu}>
+            <Link href="/" className={s.navLink} onClick={closeMenu}>
               Home
             </Link>
           </li>
           <li className={s.navItem}>
-            <Link href="/about" className={s.navLink} onClick={toggleMenu}>
+            <Link href="/about" className={s.navLink} onClick={closeMenu}>
               About
             </Link>
           </li>
           <li className={s.navItem}>
-            <SettingsToggle />
+            <SettingsToggle onChange={closeMenu} />
           </li>
         </ul>
       </nav>
